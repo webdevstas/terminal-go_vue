@@ -11,24 +11,10 @@
 
 <script>
 export default {
+  data () {
+    return {}
+  },
   mounted () {
-    // Создаём анимацию логотипа
-    const logoBounce = this.gsap.to('.header__go-logo-img', {
-      scale: 1.2,
-      repeat: -1,
-      duration: 0.5,
-      yoyo: true
-    }).pause()
-
-    // Запуск анимации лого при наведении
-    document.querySelector('.header__th-logo-link').addEventListener('mouseover', function () {
-      logoBounce.play()
-    })
-
-    // Анимацию на паузу при выходе курсора с лого
-    document.querySelector('.header__th-logo-link').addEventListener('mouseout', function () {
-      logoBounce.pause()
-    })
   }
 }
 </script>
