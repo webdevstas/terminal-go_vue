@@ -28,7 +28,7 @@ export default {
       opacity: 0,
       y: -200
     }, {
-      delay: 2,
+      delay: 1,
       opacity: 1,
       y: 0
     }).fromTo('.first-section__img', {

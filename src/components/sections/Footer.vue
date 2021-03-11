@@ -5,7 +5,7 @@
         <img src="@/assets/img/TH_Logo_Vertical_W.png" alt="" class="footer__th-logo">
       </a>
       <ul class="footer__menu-list">
-        <li class="menu__item"><a href="javascript:" class="menu__link">Карта</a></li>
+        <li class="menu__item"><router-link to="/karta" class="menu__link">Карта</router-link></li>
         <li class="menu__item"><a href="javascript:" class="menu__link">Каталог рекламных кластеров</a></li>
         <li class="menu__item"><a href="javascript:" class="menu__link">Условия размещения</a></li>
         <li class="menu__item"><a href="javascript:" class="menu__link">Контакты</a></li>
@@ -21,8 +21,8 @@
     <div class="footer_bottom container">
       <p>Copyright © 2021 Techhome LLC. All rights reserved</p>
       <div class="">
-        <a href="" class="footer_bottom__link">Политика конфиденциальности</a>
-        <a href="" class="footer_bottom__link">Карта сайта</a>
+        <router-link to="/politika-konfidencialnosti" class="footer_bottom__link">Политика конфиденциальности</router-link>
+<!--        <a href="" class="footer_bottom__link">Карта сайта</a>-->
       </div>
     </div>
   </div>

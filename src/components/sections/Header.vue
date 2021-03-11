@@ -1,8 +1,8 @@
 <template>
   <header class="header">
-    <a href="/" class="header__th-logo-link">
+    <router-link to="/" class="header__th-logo-link">
       <img src="@/assets/img/icons/go_logo.svg" alt="" class="header__go-logo-img">
-    </a>
+    </router-link>
     <div class="header__group_right">
       <button id="header__partner-btn" class="btn btn-outline-light" role="button"
               @click="modalVisible = !modalVisible">Стать партнёром
@@ -14,7 +14,7 @@
       :title="modalTitle"
       :visibility="modalVisible"
       @close="modalVisible = false"
-      :modalSize="{height: '300px'}">
+      :modalSize="{height: '300px', width: '500px'}">
       <form action="" class="request-form" @submit.prevent="submitRequest" v-if="!policyVisible">
         <div class="input-block">
           <label for="phone">Телефон:</label>
@@ -23,7 +23,10 @@
         <div class="input-block">
           <button type="submit" class="request btn btn-outline-success">Отправить</button>
         </div>
-        <a href="#" class="policy-link" @click.prevent="openPolicy">Политика конфиденциальности</a>
+        <div class="modal-policy">
+        <p class="modal-policy__text">Нажимая кнопку "Отправить" вы подтверждаете своё согласие с <a href="#" class="modal-policy__link" @click.prevent="goTo('/politika-konfidencialnosti')">политикой
+          конфиденциальности</a></p>
+        </div>
       </form>
     </AppModal>
   </teleport>
@@ -37,7 +40,6 @@ export default {
   data () {
     return {
       modalVisible: false,
-      policyVisible: false,
       requestPhone: '',
       modalTitle: 'Оставить заявку'
     }
@@ -46,9 +48,9 @@ export default {
     submitRequest () {
       console.log(this.requestPhone)
     },
-    openPolicy () {
-      this.policyVisible = true
-      this.modalTitle = 'Политика конфиденциальности'
+    goTo (path) {
+      this.modalVisible = false
+      this.$router.push(path)
     }
   }
 }
@@ -155,10 +157,16 @@ export default {
   justify-content: space-around
   align-items: center
   margin-bottom: 30px
-
+.modal
+  &-policy
+    color: #070707
+    font-size: 14px
+    max-width: 50%
+    margin: auto
+    &__link
+      color: #070707
 label
   color: #070707
-
 @supports (backdrop-filter: blur(5px) saturate(180%)) or (-webkit-backdrop-filter: blur(5px) saturate(180%))
   .header
     -webkit-backdrop-filter: blur(5px) saturate(180%)
