@@ -60,7 +60,7 @@ export default {
             y: 100,
             scrollTrigger: {
               trigger: item,
-              markers: true,
+              // markers: true,
               scrub: true,
               start: '120 bottom',
               end: '+=270'

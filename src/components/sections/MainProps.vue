@@ -1,6 +1,6 @@
 <template>
   <section class="main-props fade-out">
-    <h2 class="main-props__title fade-in gradient-text" data-grad-from="#DB0058" data-grad-to="#3E97D1">Основные
+    <h2 class="main-props__title gradient-text" data-grad-from="#DB0058" data-grad-to="#3E97D1">Основные
       характеристики</h2>
     <div class="main-props__list-wrapper">
       <div class="main-props__item">
