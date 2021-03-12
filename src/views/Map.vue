@@ -2,7 +2,13 @@
   <div class="container">
     <div id="map"></div>
     <div class="stats" v-if="statsVisible">
-      {{ stats }}
+      <div class="stats-col">Адрес</div>
+      <div class="stats-col">Дневная проходимость</div>
+      <div class="stats-col">Месячная проходимость</div>
+      <div class="stats-col">{{stats.address}}</div>
+      <div class="stats-col">{{stats.statistic.dayViews}}</div>
+      <div class="stats-col">{{stats.statistic.monthViews}}</div>
+
     </div>
   </div>
 </template>
@@ -84,6 +90,7 @@ export default {
       })
       this.map.geoObjects.add(collection)
     },
+
     deleteMarks () {
       this.map.geoObjects.removeAll()
     }
@@ -95,4 +102,18 @@ export default {
 #map
   width: 100%
   height: 60vh
+.stats
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: 1px
+  background-color: #6a6a6a
+  grid-auto-rows: minmax(30px, auto)
+  position: absolute
+  bottom: 0
+  &-col
+    background-color: #3e3e3e
+    display: flex
+    align-items: center
+    justify-content: center
+    min-width: 250px
 </style>

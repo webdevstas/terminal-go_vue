@@ -1,5 +1,5 @@
 <template>
-  <Header/>
+  <Header />
   <div class="content-area">
     <router-view></router-view>
   </div>
@@ -17,6 +17,11 @@ export default {
   components: {
     Header,
     Footer
+  },
+  data () {
+    return {
+      alertVisible: false
+    }
   }
 }
 </script>
