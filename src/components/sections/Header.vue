@@ -14,40 +14,72 @@
       :title="modalTitle"
       :visibility="modalVisible"
       @close="modalVisible = false"
-      :modalSize="{height: '300px', width: '500px'}">
-      <form action="" class="request-form" @submit.prevent="submitRequest" v-if="!policyVisible">
+      :modalSize="{height: '350px', width: '500px'}">
+      <Form action="" class="request-form" @submit="submitRequest">
+        <ErrorMessage name="phone" :class="'danger form-error'"/>
         <div class="input-block">
           <label for="phone">Телефон:</label>
-          <input type="tel" class="form-control" name="phone" id="phone" v-model="requestPhone">
+          <Field
+            type="tel"
+            class="form-control"
+            name="phone" id="phone"
+            v-model="requestPhone"
+            :rules="phoneRules"
+            :validateOnInput="true"/>
         </div>
         <div class="input-block">
           <button type="submit" class="request btn btn-outline-success">Отправить</button>
         </div>
         <div class="modal-policy">
-        <p class="modal-policy__text">Нажимая кнопку "Отправить" вы подтверждаете своё согласие с <a href="#" class="modal-policy__link" @click.prevent="goTo('/politika-konfidencialnosti')">политикой
-          конфиденциальности</a></p>
+          <p class="modal-policy__text">Нажимая кнопку "Отправить" вы подтверждаете своё согласие с
+            <a href="#"
+               class="modal-policy__link"
+               @click.prevent="goTo('/politika-konfidencialnosti')">политикой конфиденциальности</a></p>
         </div>
-      </form>
+      </Form>
     </AppModal>
+    <AppAlert
+      title="Заявка успешно отправлена"
+      :visibility="alertVisible"
+      type="success"
+      @alertClosed="alertVisible = false"
+      message="Спасибо! Ближайшее время мы с вами свяжемся."
+    />
   </teleport>
 </template>
 
 <script>
 import AppModal from '@/components/ui/AppModal'
+import { Field, Form, ErrorMessage } from 'vee-validate'
+import * as yup from 'yup'
+import AppAlert from '@/components/ui/AppAlert'
 
 export default {
-  components: { AppModal },
+  components: {
+    AppAlert,
+    AppModal,
+    Field,
+    Form,
+    ErrorMessage
+  },
+
   data () {
     return {
       modalVisible: false,
       requestPhone: '',
-      modalTitle: 'Оставить заявку'
+      modalTitle: 'Оставить заявку',
+      phoneRules: yup.string().required('Введите номер телефона').matches('^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$', 'Введите корректный номер телефона'),
+      alertVisible: false
     }
   },
+
   methods: {
     submitRequest () {
+      this.modalVisible = false
+      this.alertVisible = true
       console.log(this.requestPhone)
     },
+
     goTo (path) {
       this.modalVisible = false
       this.$router.push(path)
@@ -157,16 +189,20 @@ export default {
   justify-content: space-around
   align-items: center
   margin-bottom: 30px
+
 .modal
   &-policy
     color: #070707
     font-size: 14px
     max-width: 50%
     margin: auto
+
     &__link
       color: #070707
+
 label
   color: #070707
+
 @supports (backdrop-filter: blur(5px) saturate(180%)) or (-webkit-backdrop-filter: blur(5px) saturate(180%))
   .header
     -webkit-backdrop-filter: blur(5px) saturate(180%)

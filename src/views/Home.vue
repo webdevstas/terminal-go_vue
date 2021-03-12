@@ -10,7 +10,6 @@
 
 <script>
 import FirstSection from '@/components/sections/FirstSection'
-
 import MainProps from '@/components/sections/MainProps'
 import BigScreen from '@/components/sections/BigScreen'
 import Sequence from '@/components/sections/Sequence'

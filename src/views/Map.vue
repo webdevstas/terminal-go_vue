@@ -5,10 +5,9 @@
       <div class="stats-col">Адрес</div>
       <div class="stats-col">Дневная проходимость</div>
       <div class="stats-col">Месячная проходимость</div>
-      <div class="stats-col">{{stats.address}}</div>
-      <div class="stats-col">{{stats.statistic.dayViews}}</div>
-      <div class="stats-col">{{stats.statistic.monthViews}}</div>
-
+      <div class="stats-col">{{ stats.address }}</div>
+      <div class="stats-col">{{ stats.statistic.dayViews }}</div>
+      <div class="stats-col">{{ stats.statistic.monthViews }}</div>
     </div>
   </div>
 </template>
@@ -89,10 +88,6 @@ export default {
         collection.add(placemark)
       })
       this.map.geoObjects.add(collection)
-    },
-
-    deleteMarks () {
-      this.map.geoObjects.removeAll()
     }
   }
 }
@@ -102,6 +97,7 @@ export default {
 #map
   width: 100%
   height: 60vh
+
 .stats
   display: grid
   grid-template-columns: repeat(3, 1fr)
@@ -110,8 +106,9 @@ export default {
   grid-auto-rows: minmax(30px, auto)
   position: absolute
   bottom: 0
+
   &-col
-    background-color: #3e3e3e
+    background-color: #1e1e1e
     display: flex
     align-items: center
     justify-content: center
