@@ -69,8 +69,8 @@ export default {
       const collection = new ymaps.GeoObjectCollection(null, {
         iconLayout: 'default#image',
         iconImageHref: '/go_logo.png',
-        iconImageSize: [30, 30],
-        iconImageOffset: [-13, 0]
+        iconImageSize: [40, 40],
+        iconImageOffset: [-19, 0]
       })
       this.terminals.forEach(terminal => {
         const placemark = new ymaps.Placemark(terminal.coords, {

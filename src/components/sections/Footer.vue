@@ -6,7 +6,7 @@
       </router-link>
       <ul class="footer__menu-list">
         <li class="menu__item"><router-link to="/karta" class="menu__link">Карта</router-link></li>
-        <li class="menu__item"><a href="javascript:" class="menu__link">Каталог рекламных кластеров</a></li>
+        <li class="menu__item"><router-link to="/katalog" class="menu__link">Каталог рекламных кластеров</router-link></li>
         <li class="menu__item"><router-link to="/usloviya" class="menu__link">Условия размещения</router-link></li>
         <li class="menu__item"><a href="javascript:" class="menu__link">Контакты</a></li>
         <li class="menu__item"><a href="javascript:" class="menu__link">Новости</a></li>

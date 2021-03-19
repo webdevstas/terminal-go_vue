@@ -3,6 +3,7 @@ import Home from '@/views/Home'
 import Policy from '@/views/Policy'
 import Map from '@/views/Map'
 import Conditions from '@/views/Conditions'
+import Catalog from '@/views/Catalog'
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
   {
     path: '/usloviya',
     component: Conditions
+  },
+  {
+    path: '/katalog',
+    component: Catalog
   }
 ]
 
