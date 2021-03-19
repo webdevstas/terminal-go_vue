@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1 class="section-title">Карта расположения терминалов</h1>
     <div id="map"></div>
     <div class="stats" v-if="statsVisible">
       <div class="stats-col">Адрес</div>
@@ -67,9 +68,9 @@ export default {
     setMarkers () {
       const collection = new ymaps.GeoObjectCollection(null, {
         iconLayout: 'default#image',
-        iconImageHref: '/terminal-icon.png',
-        iconImageSize: [18, 50],
-        iconImageOffset: [-8, 0]
+        iconImageHref: '/go_logo.png',
+        iconImageSize: [30, 30],
+        iconImageOffset: [-13, 0]
       })
       this.terminals.forEach(terminal => {
         const placemark = new ymaps.Placemark(terminal.coords, {
