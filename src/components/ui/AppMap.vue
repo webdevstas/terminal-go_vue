@@ -1,22 +1,22 @@
 <template>
-  <div class="container">
-    <h1 class="section-title">Карта расположения терминалов</h1>
-    <div id="map"></div>
-    <div class="stats" v-if="statsVisible">
-      <div class="stats-col">Адрес</div>
-      <div class="stats-col">Дневная проходимость</div>
-      <div class="stats-col">Месячная проходимость</div>
-      <div class="stats-col">{{ stats.address }}</div>
-      <div class="stats-col">{{ stats.statistic.dayViews }}</div>
-      <div class="stats-col">{{ stats.statistic.monthViews }}</div>
-    </div>
+  <h1 class="section-title">{{ title }}</h1>
+  <div id="map"></div>
+  <div class="stats" v-if="statsVisible">
+    <div class="stats-col">Адрес</div>
+    <div class="stats-col">Дневная проходимость</div>
+    <div class="stats-col">Месячная проходимость</div>
+    <div class="stats-col">{{ stats.address }}</div>
+    <div class="stats-col">{{ stats.statistic.dayViews }}</div>
+    <div class="stats-col">{{ stats.statistic.monthViews }}</div>
   </div>
 </template>
 
 <script>
 import { markRaw } from 'vue'
+
 /* eslint-disable no-undef */
 export default {
+  props: ['terminals', 'title'],
   data () {
     return {
       map: null,
@@ -25,11 +25,7 @@ export default {
     }
   },
 
-  computed: {
-    terminals () {
-      return this.$store.getters['terminals/getTerminals']
-    }
-  },
+  computed: {},
 
   created () {
     // Установить скрипты для использования яндекс карты
@@ -39,7 +35,6 @@ export default {
       'https://api-maps.yandex.ru/2.1/?apikey=31cbb2bd-97fb-43fb-904b-254c2dc5f2bc&lang=ru_RU'
     )
     document.head.appendChild(scriptYandexMap)
-
     // Инициализировать яндекс карту
     scriptYandexMap.addEventListener('load', this.initializeYandexMap)
   },
@@ -72,6 +67,7 @@ export default {
         iconImageSize: [40, 40],
         iconImageOffset: [-19, 0]
       })
+
       this.terminals.forEach(terminal => {
         const placemark = new ymaps.Placemark(terminal.coords, {
           hintContent: 'Нажмите для просмотра статистики',
@@ -88,6 +84,7 @@ export default {
         })
         collection.add(placemark)
       })
+
       this.map.geoObjects.add(collection)
     }
   }

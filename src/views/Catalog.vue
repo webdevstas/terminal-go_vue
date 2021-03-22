@@ -1,15 +1,31 @@
 <template>
-  <div>
-
+  <div class="container">
+    <div class="catalog">
+      <AppCatalogCard :title="item.title" :description="item.description" :link="item.link" :image="item.image"
+                      v-for="item in clusters" :key="item.id"/>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
+import AppCatalogCard from '@/components/ui/AppCatalogCard'
 
+export default {
+  components: { AppCatalogCard },
+  data () {
+    return {}
+  },
+  computed: {
+    clusters () {
+      return this.$store.getters['clusters/getClusters']
+    }
+  }
 }
 </script>
 
-<style scoped>
-
+<style lang="sass" scoped>
+.catalog
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 20px
 </style>

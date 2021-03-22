@@ -1,5 +1,5 @@
 <template>
-  <Header />
+  <Header/>
   <div class="content-area">
     <router-view></router-view>
   </div>
@@ -19,9 +19,7 @@ export default {
     Footer
   },
   data () {
-    return {
-
-    }
+    return {}
   }
 }
 </script>

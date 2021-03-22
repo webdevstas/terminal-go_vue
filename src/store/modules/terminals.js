@@ -10,7 +10,8 @@ export default {
           statistic: {
             dayViews: 389,
             monthViews: 7321
-          }
+          },
+          cluster: 3
         },
         {
           id: 2,
@@ -19,7 +20,8 @@ export default {
           statistic: {
             dayViews: 257,
             monthViews: 5341
-          }
+          },
+          cluster: 1
         },
         {
           id: 3,
@@ -28,7 +30,8 @@ export default {
           statistic: {
             dayViews: 757,
             monthViews: 8645
-          }
+          },
+          cluster: 2
         },
         {
           id: 4,
@@ -37,7 +40,8 @@ export default {
           statistic: {
             dayViews: 848,
             monthViews: 9443
-          }
+          },
+          cluster: 2
         }
       ]
     }
@@ -45,6 +49,9 @@ export default {
   getters: {
     getTerminals (state) {
       return state.terminals
+    },
+    getTerminalsByClusterId: (state) => (clusterId) => {
+      return state.terminals.filter(terminal => terminal.cluster === clusterId)
     }
   }
 }

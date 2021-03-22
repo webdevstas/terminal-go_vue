@@ -23,6 +23,9 @@ export default {
     BigScreen,
     MainProps,
     FirstSection
+  },
+  mounted () {
+
   }
 }
 </script>
