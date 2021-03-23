@@ -28,15 +28,14 @@ export default {
   computed: {},
 
   created () {
-    // Установить скрипты для использования яндекс карты
-    const scriptYandexMap = document.createElement('script')
-    scriptYandexMap.setAttribute(
-      'src',
-      'https://api-maps.yandex.ru/2.1/?apikey=31cbb2bd-97fb-43fb-904b-254c2dc5f2bc&lang=ru_RU'
-    )
-    document.head.appendChild(scriptYandexMap)
-    // Инициализировать яндекс карту
-    scriptYandexMap.addEventListener('load', this.initializeYandexMap)
+    ymaps.ready(() => {
+      const map = new ymaps.Map('map', {
+        center: [43.581396, 39.719130],
+        zoom: 15
+      })
+      this.map = markRaw(map)
+      this.setMarkers()
+    })
   },
 
   methods: {
@@ -47,17 +46,6 @@ export default {
 
     closeStats () {
       this.statsVisible = false
-    },
-
-    initializeYandexMap () {
-      ymaps.ready(() => {
-        const map = new ymaps.Map('map', {
-          center: [43.581396, 39.719130],
-          zoom: 15
-        })
-        this.map = markRaw(map)
-        this.setMarkers()
-      })
     },
 
     setMarkers () {
