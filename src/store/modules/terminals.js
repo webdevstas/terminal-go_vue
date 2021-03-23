@@ -11,7 +11,7 @@ export default {
             dayViews: 389,
             monthViews: 7321
           },
-          cluster: 3
+          cluster: [2, 3]
         },
         {
           id: 2,
@@ -21,7 +21,7 @@ export default {
             dayViews: 257,
             monthViews: 5341
           },
-          cluster: 1
+          cluster: [1, 2]
         },
         {
           id: 3,
@@ -31,7 +31,7 @@ export default {
             dayViews: 757,
             monthViews: 8645
           },
-          cluster: 2
+          cluster: [2, 4]
         },
         {
           id: 4,
@@ -41,7 +41,7 @@ export default {
             dayViews: 848,
             monthViews: 9443
           },
-          cluster: 2
+          cluster: [2, 4]
         }
       ]
     }
@@ -51,7 +51,7 @@ export default {
       return state.terminals
     },
     getTerminalsByClusterId: (state) => (clusterId) => {
-      return state.terminals.filter(terminal => terminal.cluster === clusterId)
+      return state.terminals.filter(terminal => terminal.cluster.includes(clusterId))
     }
   }
 }
