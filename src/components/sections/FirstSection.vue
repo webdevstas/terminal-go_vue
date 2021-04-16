@@ -1,19 +1,10 @@
 <template>
     <section class="first-section">
-      <h1 class="first-section__title gradient-text animated" data-grad-from="#3E97D1" data-grad-to="#DB0058">
+      <h1 class="first-section__title gradient-text animated">
         Интерактивная городская навигационная система</h1>
-      <div class="first-section__pin-content">
-        <img src="@/assets/img/10001.png" alt="" class="first-section__img">
+      <div class="sequence__pin-content">
+        <canvas id="start__frame"></canvas>
       </div>
-      <ul class="first-section__list">
-        <li class="first-section__list-item" style="opacity: 1;">В рамках программы "Умный город"...
-        </li>
-        <li class="first-section__list-item">в городе Сочи установлены
-          современные информационные терминалы.
-        </li>
-        <li class="first-section__list-item">Более 200 единиц.</li>
-        <li class="first-section__list-item">В самых знаковых местах.</li>
-      </ul>
     </section>
 </template>
 
@@ -21,75 +12,58 @@
 
 export default {
   mounted () {
-    // eslint-disable-next-line new-cap
-    const tl = new this.gsap.timeline()
+    const canvas = document.getElementById('start__frame')
+    const context = canvas.getContext('2d')
 
-    const firstScreenAnim = tl.fromTo('.first-section__title', {
-      opacity: 0,
-      y: -200
-    }, {
-      delay: 1,
-      opacity: 1,
-      y: 0
-    }).fromTo('.first-section__img', {
-      opacity: 0,
-      x: -1000
-    }, {
-      opacity: 1,
-      x: 0
-    }).from('.first-section__list-item', {
-      opacity: 0,
-      x: -100,
-      y: 100,
-      stagger: 0.5
-    }).pause()
+    canvas.width = document.documentElement.clientWidth - 200
+    canvas.height = document.documentElement.clientHeight
 
-    this.ScrollTrigger.create({
-      trigger: '.first-section',
-      // markers: true,
-      toggleActions: 'play pause complete reset',
-      animation: firstScreenAnim
+    const frameCount = 180
+    const currentFrame = index => (
+      `/seq/start/SEQ_Start(${index}).png`
+    )
+
+    const images = []
+    const film = {
+      frame: 0
+    }
+
+    for (let i = 1; i <= frameCount; i++) {
+      const img = new Image()
+      img.src = currentFrame(i)
+      images.push(img)
+    }
+
+    this.gsap.to(film, {
+      frame: frameCount - 1,
+      snap: 'frame',
+      scrollTrigger: {
+        trigger: '.first-section',
+        scrub: 0.1,
+        pin: '.sequence__pin-content',
+        start: 'top top',
+        end: 'bottom bottom'
+        // markers: true
+      },
+      onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate,
     })
+
+    images[0].onload = render
+
+    function render () {
+      context.clearRect(0, 0, canvas.width, canvas.height)
+      context.drawImage(images[film.frame], 0, 0, canvas.width, canvas.height)
+    }
   }
 }
 </script>
 
 <style lang="sass" scoped>
 .first-section
-  display: grid
-  grid-template-columns: 1fr 1fr
-  align-items: start
-
+  height: 3000px
   &__title
     font-size: 38px
-    width: 400px
     font-weight: bold
     color: #00c4ff
-    grid-column: 1/2
-    grid-row: 1/2
-    justify-self: start
-
-  &__pin-content
-    align-self: start
-    justify-self: center
-    grid-row: 1/3
-    width: fit-content
-
-  &__img
-    height: 800px
-    display: block
-    margin: auto
-
-  &__list
-    list-style: none
-    grid-row: 2/3
-    justify-self: center
-
-    &-item
-      font-size: 32px
-      height: 120px
-      display: flex
-      align-items: center
-      justify-content: flex-start
-      text-align: left
+    text-align: center
 </style>
