@@ -2,26 +2,29 @@
   <div>
     <FirstSection/>
     <Video/>
-    <MainProps/>
-    <BigScreen/>
+    <Case/>
+    <Screen />
+    <Excursions/>
     <Travels/>
   </div>
 </template>
 
 <script>
 import FirstSection from '@/components/sections/FirstSection'
-import MainProps from '@/components/sections/Case'
-import BigScreen from '@/components/sections/BigScreen'
+import Case from '@/components/sections/Case'
+import Excursions from '@/components/sections/Excursions'
 import Travels from '@/components/sections/Travels'
 import Video from '@/components/sections/Video'
+import Screen from '@/components/sections/Screen'
 
 export default {
   name: 'Home',
   components: {
+    Screen,
+    Case,
     Video,
     Travels,
-    BigScreen,
-    MainProps,
+    Excursions,
     FirstSection
   },
   mounted () {

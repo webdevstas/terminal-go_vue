@@ -52,8 +52,8 @@ export default {
       const collection = new ymaps.GeoObjectCollection(null, {
         iconLayout: 'default#image',
         iconImageHref: '/go_logo.png',
-        iconImageSize: [35, 35],
-        iconImageOffset: [-16, 0]
+        iconImageSize: [20, 20],
+        iconImageOffset: [0, 0]
       })
 
       this.terminals.forEach(terminal => {

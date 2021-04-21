@@ -18,7 +18,7 @@ export default {
     canvas.width = document.documentElement.clientWidth - 200
     canvas.height = document.documentElement.clientHeight
 
-    const frameCount = 180
+    const frameCount = 158
     const currentFrame = index => (
       `/seq/start/SEQ_Start(${index}).png`
     )

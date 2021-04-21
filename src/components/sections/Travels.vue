@@ -34,72 +34,74 @@ export default {
       end: '+=700'
     })
 
+    // const cities = ['Москва', 'Санкт-Петербург', 'Ярославль', 'Новосибирск', 'Краснодар', 'Нижневартовск', 'Мурманск', 'Минск', 'Новокузнецк', 'Волгоград', 'Владивосток']
+
     master.to(from, {
-      duration: 2,
+      duration: 1,
       text: 'Сочи'
     })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Москва',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Санкт-Петербург',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Ярославль',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Новосибирск',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Краснодар',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Нижневартовск',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Мурманск',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Минск',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Новокузнецк',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Волгоград',
         yoyo: true,
         repeat: 1
       })
       .to(to, {
-        duration: 2,
+        duration: 1,
         text: 'Владивосток',
         yoyo: true,
         repeat: 1
