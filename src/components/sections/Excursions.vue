@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="excursions-grid__col">
-          <h2 class="section-title excursions__title">Городские экскурсии</h2>
+          <h2 class="section-title excursions__title fade-in">Городские экскурсии</h2>
           <AppAnimList :items="propList" name="excursions"/>
         </div>
       </div>

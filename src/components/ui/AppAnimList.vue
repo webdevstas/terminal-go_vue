@@ -40,7 +40,7 @@ export default {
   list-style: none
 
   &-item
-    font-size: 28px
+    font-size: 32px
     height: 100px
     margin-left: 120px
     display: flex

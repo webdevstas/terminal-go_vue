@@ -1,12 +1,12 @@
 <template>
-  <div class="card" :style="{'background': bgcolor}">
+  <div class="card">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['bgcolor']
+
 }
 </script>
 
@@ -14,4 +14,5 @@ export default {
 .card
   border-radius: 0.5rem
   padding: 20px
+  position: relative
 </style>

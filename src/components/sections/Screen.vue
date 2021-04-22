@@ -1,16 +1,27 @@
 <template>
   <div class="screen">
-    <div class="screen-pin__content">
-      <div class="screen-grid">
-        <div class="screen-col">
-
-        </div>
-        <div class="screen-col"><h2 class="section-title">Большой и чёткий экран</h2></div>
-        <div class="screen-col">
-          <app-card bgcolor="linear-gradient(90deg, rgba(173,0,55,1) 0%, rgba(0,117,215,1) 100%)">
-            <h2 class="card-title">Разрешение 4к</h2>
-          </app-card>
-        </div>
+    <h2 class="section-title fade-in">Большой и чёткий экран</h2>
+    <div class="screen-pin__content fade-in">
+      <div class="screen-img__wrap reveal">
+        <video id="video-frame" src="/1SEQ_Screen_Street.mp4"></video>
+        <img src="@/assets/img/half-screen.png" alt="" class="screen-img">
+      </div>
+      <div class="screen-left__cards">
+        <app-card :style="{background: 'linear-gradient(90deg, rgba(196,194,0,0.5) 0%, rgba(0,182,208,0.5) 100%)'}">
+          <h2 class="card-title">Диагональ 65"</h2>
+        </app-card>
+        <app-card :style="{background: 'linear-gradient(90deg, rgba(0,218,240,0.5) 0%, rgba(166,0,106,0.5) 100%)'}">
+          <h2 class="card-title">Разрешение 4к</h2>
+        </app-card>
+        <app-card :style="{background: 'linear-gradient(90deg, rgba(207,0,139,0.5) 0%, rgba(0,29,215,0.5) 100%)'}">
+          <h2 class="card-title">Мульти soft-touch</h2>
+        </app-card>
+        <app-card :style="{background: 'linear-gradient(90deg, rgba(0,196,39,0.5) 0%, rgba(208,0,0,0.5) 100%)'}">
+          <h2 class="card-title">Яркость 6000 кд/м<sup>2</sup></h2>
+        </app-card>
+        <app-card :style="{background: 'linear-gradient(90deg, rgba(240,237,0,0.5) 0%, rgba(0,0,112,0.5) 100%)'}">
+          <h2 class="card-title">Смена яркости день/ночь</h2>
+        </app-card>
       </div>
     </div>
   </div>
@@ -23,33 +34,100 @@ export default {
   components: { AppCard },
 
   mounted () {
-    this.gsap.to('.screen-pin__content', {
-      scrollTrigger: {
-        trigger: '.screen',
-        markers: true,
-        pin: '.screen-pin__content',
-        start: 'top top',
-        end: 'bottom bottom'
-      }
-    })
+    this.makePin()
+    this.cards = this.gsap.utils.toArray('.card')
+    this.startCardAnim()
   },
 
   data () {
     return {
-      propListLeft: ['Разрешение 4к', 'Диагональ 65"', 'Мульти soft-touch', 'Смена яркости день/ночь']
+      cards: []
+    }
+  },
+
+  methods: {
+    startCardAnim () {
+      this.cards.forEach(card => {
+        this.gsap.to(card, {
+          x: 1000,
+          scrollTrigger: {
+            trigger: card,
+            // markers: true,
+            scrub: 1,
+            start: 'center top',
+            end: '+=200'
+          }
+        })
+      })
+    },
+
+    makePin () {
+      this.gsap.to('.screen-pin__content', {
+        scrollTrigger: {
+          trigger: '.screen',
+          // markers: true,
+          pin: '.screen-pin__content',
+          start: '+=90 top',
+          end: 'bottom bottom',
+          onEnter: () => {
+            document.getElementById('video-frame').play()
+          }
+        }
+      })
     }
   }
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .screen
-  height: 2000px
-  padding-top: 70px
+  height: 2200px
+
+  &-img
+    width: 100%
+    height: auto
+    z-index: 5
+    position: relative
+
+    &__wrap
+      position: absolute
+      height: 100vh
+      transform: translateX(50%)
+      right: 50%
+      display: block
+      width: 78vw
 
   &-grid
     display: grid
     grid-template-columns: repeat(3, 1fr)
-.card-title
-  font-size: 28px
+    position: relative
+
+  &-left__cards
+    display: flex
+    position: relative
+    flex-direction: column
+    //align-items: center
+    width: 25%
+    left: 50px
+    top: 100px
+
+.card
+  margin-bottom: 50px
+  backdrop-filter: blur(10px)
+  background-blend-mode: screen
+  position: relative
+  left: -1000px
+  top: 0
+  z-index: 100
+  color: #fff
+  &-title
+    font-size: 28px
+
+#video-frame
+  position: absolute
+  top: 0
+  width: 99%
+  transform: translateX(-50%)
+  left: 50%
+  z-index: 1
 </style>
