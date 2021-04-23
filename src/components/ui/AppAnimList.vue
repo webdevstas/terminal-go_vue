@@ -8,14 +8,14 @@
 
 <script>
 export default {
-  props: ['items', 'name'],
+  props: ['items', 'name', 'animOptions'],
 
   mounted () {
-    this.startTextAnim()
+    this.startTextAnim(this.animOptions)
   },
 
   methods: {
-    startTextAnim () {
+    startTextAnim (options) {
       const textItems = this.gsap.utils.toArray(`.${this.name}-list .list-item`)
       textItems.forEach(item => {
         this.gsap.from(item, {
@@ -35,9 +35,9 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .list
-  list-style: none
+  list-style: circle
 
   &-item
     font-size: 32px
@@ -48,4 +48,5 @@ export default {
     justify-content: flex-start
     text-align: start
     transform-origin: right
+    font-family: Jura-reg
 </style>

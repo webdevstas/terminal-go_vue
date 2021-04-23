@@ -7,19 +7,19 @@
         <img src="@/assets/img/half-screen.png" alt="" class="screen-img">
       </div>
       <div class="screen-left__cards">
-        <app-card :style="{background: 'linear-gradient(90deg, rgba(196,194,0,0.5) 0%, rgba(0,182,208,0.5) 100%)'}">
+        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(196,194,0,0.5) 0%, rgba(0,182,208,0.5) 100%)'}">
           <h2 class="card-title">Диагональ 65"</h2>
         </app-card>
-        <app-card :style="{background: 'linear-gradient(90deg, rgba(0,218,240,0.5) 0%, rgba(166,0,106,0.5) 100%)'}">
+        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(0,218,240,0.5) 0%, rgba(166,0,106,0.5) 100%)'}">
           <h2 class="card-title">Разрешение 4к</h2>
         </app-card>
-        <app-card :style="{background: 'linear-gradient(90deg, rgba(207,0,139,0.5) 0%, rgba(0,29,215,0.5) 100%)'}">
+        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(207,0,139,0.5) 0%, rgba(0,29,215,0.5) 100%)'}">
           <h2 class="card-title">Мульти soft-touch</h2>
         </app-card>
-        <app-card :style="{background: 'linear-gradient(90deg, rgba(0,196,39,0.5) 0%, rgba(208,0,0,0.5) 100%)'}">
+        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(0,196,39,0.5) 0%, rgba(208,0,0,0.5) 100%)'}">
           <h2 class="card-title">Яркость 6000 кд/м<sup>2</sup></h2>
         </app-card>
-        <app-card :style="{background: 'linear-gradient(90deg, rgba(240,237,0,0.5) 0%, rgba(0,0,112,0.5) 100%)'}">
+        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(240,237,0,0.5) 0%, rgba(0,0,112,0.5) 100%)'}">
           <h2 class="card-title">Смена яркости день/ночь</h2>
         </app-card>
       </div>
@@ -35,7 +35,7 @@ export default {
 
   mounted () {
     this.makePin()
-    this.cards = this.gsap.utils.toArray('.card')
+    this.cards = this.gsap.utils.toArray('.card.screen-card')
     this.startCardAnim()
   },
 

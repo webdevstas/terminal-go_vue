@@ -12,7 +12,7 @@ export default {
 
 <style lang="sass" scoped>
 .card
-  border-radius: 0.5rem
+  border-radius: 0.9rem
   padding: 20px
   position: relative
 </style>

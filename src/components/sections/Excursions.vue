@@ -18,8 +18,10 @@
           </div>
         </div>
         <div class="excursions-grid__col">
-          <h2 class="section-title excursions__title fade-in">Городские экскурсии</h2>
-          <AppAnimList :items="propList" name="excursions"/>
+          <app-card style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);">
+            <h2 class="section-title excursions__title fade-in">Городские экскурсии</h2>
+            <AppAnimList :items="propList" name="excursions" style="color: #fff"/>
+          </app-card>
         </div>
       </div>
     </div>
@@ -29,9 +31,13 @@
 
 <script>
 import AppAnimList from '@/components/ui/AppAnimList'
+import AppCard from '@/components/ui/AppCard'
 
 export default {
-  components: { AppAnimList },
+  components: {
+    AppCard,
+    AppAnimList
+  },
 
   data () {
     return {
@@ -40,7 +46,10 @@ export default {
         'Возможность интеграции со сторонними сервисами',
         'Оплата через встроенный терминал',
         'Отслеживание статистики'
-      ]
+      ],
+      listAnimOptions: {
+
+      }
     }
   },
 
@@ -80,7 +89,10 @@ export default {
     grid-template-columns: 1fr 2fr
 
   &__title
-    text-align: start
+    text-align: center
+    font-family: 'Caveat'
+    font-size: 62px
+    color: #fff
 
   &__container
     position: relative
