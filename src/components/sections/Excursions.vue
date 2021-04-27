@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="excursions-grid__col">
-          <app-card style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);">
+          <app-card style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%); height: 100%">
             <h2 class="section-title excursions__title fade-in">Городские экскурсии</h2>
             <AppAnimList :items="propList" name="excursions" style="color: #fff"/>
           </app-card>

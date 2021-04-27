@@ -1,30 +1,35 @@
 <template>
-  <div class="screen">
+  <section class="screen">
     <h2 class="section-title fade-in">Большой и чёткий экран</h2>
-    <div class="screen-pin__content fade-in">
-      <div class="screen-img__wrap reveal">
-        <video id="video-frame" src="/1SEQ_Screen_Street.mp4"></video>
+    <div class="screen-pin__content">
+      <div class="screen-img__wrap reveal fade-in">
+        <video id="video-frame" src="/1SEQ_Screen_Street.mp4" muted></video>
         <img src="@/assets/img/half-screen.png" alt="" class="screen-img">
       </div>
       <div class="screen-left__cards">
-        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(196,194,0,0.5) 0%, rgba(0,182,208,0.5) 100%)'}">
+        <app-card class="screen-card"
+                  :style="{background: 'linear-gradient(90deg, rgba(196,194,0,0.5) 0%, rgba(0,182,208,0.5) 100%)'}">
           <h2 class="card-title">Диагональ 65"</h2>
         </app-card>
-        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(0,218,240,0.5) 0%, rgba(166,0,106,0.5) 100%)'}">
+        <app-card class="screen-card"
+                  :style="{background: 'linear-gradient(90deg, rgba(0,218,240,0.5) 0%, rgba(166,0,106,0.5) 100%)'}">
           <h2 class="card-title">Разрешение 4к</h2>
         </app-card>
-        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(207,0,139,0.5) 0%, rgba(0,29,215,0.5) 100%)'}">
+        <app-card class="screen-card"
+                  :style="{background: 'linear-gradient(90deg, rgba(207,0,139,0.5) 0%, rgba(0,29,215,0.5) 100%)'}">
           <h2 class="card-title">Мульти soft-touch</h2>
         </app-card>
-        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(0,196,39,0.5) 0%, rgba(208,0,0,0.5) 100%)'}">
+        <app-card class="screen-card"
+                  :style="{background: 'linear-gradient(90deg, rgba(0,196,39,0.5) 0%, rgba(208,0,0,0.5) 100%)'}">
           <h2 class="card-title">Яркость 6000 кд/м<sup>2</sup></h2>
         </app-card>
-        <app-card class="screen-card" :style="{background: 'linear-gradient(90deg, rgba(240,237,0,0.5) 0%, rgba(0,0,112,0.5) 100%)'}">
+        <app-card class="screen-card"
+                  :style="{background: 'linear-gradient(90deg, rgba(240,237,0,0.5) 0%, rgba(0,0,112,0.5) 100%)'}">
           <h2 class="card-title">Смена яркости день/ночь</h2>
         </app-card>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -34,7 +39,8 @@ export default {
   components: { AppCard },
 
   mounted () {
-    this.makePin()
+    this.makePin('.screen-pin__content', '.screen', false, '+100 top')
+    this.playVideo()
     this.cards = this.gsap.utils.toArray('.card.screen-card')
     this.startCardAnim()
   },
@@ -61,14 +67,11 @@ export default {
       })
     },
 
-    makePin () {
-      this.gsap.to('.screen-pin__content', {
+    playVideo () {
+      this.gsap.to('.screen', {
         scrollTrigger: {
           trigger: '.screen',
-          // markers: true,
-          pin: '.screen-pin__content',
-          start: '+=90 top',
-          end: 'bottom bottom',
+          start: '100 top',
           onEnter: () => {
             document.getElementById('video-frame').play()
           }
@@ -120,6 +123,7 @@ export default {
   top: 0
   z-index: 100
   color: #fff
+
   &-title
     font-size: 28px
 

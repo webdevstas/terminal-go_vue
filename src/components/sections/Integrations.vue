@@ -25,8 +25,8 @@ export default {
   components: { AppAnimList },
 
   mounted () {
+    this.makePin('.integrations-pin__content', '.integrations')
     this.startCitiesAnim()
-    this.startPin()
   },
 
   data () {
@@ -119,15 +119,6 @@ export default {
           yoyo: true,
           repeat: 1
         })
-    },
-
-    startPin () {
-      this.gsap.to('.integrations-pin__content', {
-        scrollTrigger: {
-          trigger: '.integrations',
-          pin: '.integrations-pin__content'
-        }
-      })
     }
   }
 }
@@ -135,6 +126,7 @@ export default {
 
 <style lang="sass" scoped>
 .integrations
+  height: 1500px
   &-grid
     display: grid
     grid-template-columns: 2fr 1fr

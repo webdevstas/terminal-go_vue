@@ -7,7 +7,13 @@
           <AppAnimList :items="propList" name="case"/>
         </div>
         <div class="case-film__wrapper reveal">
-          <canvas id="ip__frame"></canvas>
+          <AppSequence
+            id="ip__frame"
+            trigger=".case"
+            files-src="/seq/ip/ip"
+            frame-count="90"
+            start="30% top"
+          />
         </div>
       </div>
     </div>
@@ -16,72 +22,21 @@
 
 <script>
 import AppAnimList from '@/components/ui/AppAnimList'
+import AppSequence from '@/components/ui/AppSequence'
 export default {
-  components: { AppAnimList },
+  components: { AppSequence, AppAnimList },
   data () {
     return {
-      propList: ['Металл 4мм', 'Прочное крепление к фундаменту', 'Каленое черное стекло 100мм', 'Устойчивость к погодным условиям по стандарту IP65']
+      propList: ['Металл 4мм', 'Прочное крепление к фундаменту', 'Каленое черное стекло 100мм', 'Устойчивость к погодным условиям по стандарту IP68']
     }
   },
 
   mounted () {
-    this.gsap.to('.case__pin-content', {
-      scrollTrigger: {
-        trigger: '.case',
-        pin: '.case__pin-content',
-        // markers: true,
-        start: 'top top',
-        end: 'bottom bottom'
-      }
-    })
-
-    this.startTermAnim()
+    this.makePin('.case__pin-content', '.case')
   },
 
   methods: {
-    startTermAnim () {
-      const canvas = document.getElementById('ip__frame')
-      const context = canvas.getContext('2d')
 
-      canvas.width = document.documentElement.clientWidth - 200
-      canvas.height = document.documentElement.clientHeight
-
-      const frameCount = 90
-      const currentFrame = index => (
-        `/seq/ip/ip(${index}).png`
-      )
-
-      const images = []
-      const film = {
-        frame: 0
-      }
-
-      for (let i = 1; i <= frameCount; i++) {
-        const img = new Image()
-        img.src = currentFrame(i)
-        images.push(img)
-      }
-
-      this.gsap.to(film, {
-        frame: frameCount - 1,
-        snap: 'frame',
-        scrollTrigger: {
-          trigger: '.case',
-          scrub: 0.1,
-          start: '500 top',
-          end: 'bottom bottom'
-          // markers: true
-        },
-        onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate,
-      })
-
-      images[0].onload = render
-
-      function render () {
-        context.clearRect(0, 0, canvas.width, canvas.height)
-        context.drawImage(images[film.frame], 0, 0, canvas.width, canvas.height)
-      }
-    }
   }
 }
 </script>

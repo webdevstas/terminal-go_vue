@@ -3,6 +3,7 @@
     <FirstSection/>
     <Case/>
     <Screen />
+    <Camera />
     <Excursions/>
     <Integrations/>
   </div>
@@ -14,10 +15,12 @@ import Case from '@/components/sections/Case'
 import Excursions from '@/components/sections/Excursions'
 import Screen from '@/components/sections/Screen'
 import Integrations from '@/components/sections/Integrations'
+import Camera from '@/components/sections/Camera'
 
 export default {
   name: 'Home',
   components: {
+    Camera,
     Integrations,
     Screen,
     Case,
@@ -28,12 +31,13 @@ export default {
     this.gsap.utils.toArray('.fade-in').forEach(item => {
       this.gsap.from(item, {
         opacity: 0,
+        y: 100,
         scrollTrigger: {
           trigger: item,
           scrub: true,
           // markers: true,
-          start: 'top center',
-          end: '+=200 center'
+          start: '+100 bottom',
+          end: '+=300 bottom'
         }
       })
     })

@@ -1,66 +1,37 @@
 <template>
-    <section class="first-section">
-      <h1 class="first-section__title gradient-text animated">
-        Интерактивная городская навигационная система</h1>
-      <div class="sequence__pin-content">
-        <canvas id="start__frame"></canvas>
-      </div>
-    </section>
+  <section class="first-section">
+    <h1 class="first-section__title">
+      Интерактивная городская навигационная система</h1>
+    <div class="first-section__pin-content">
+      <AppSequence
+        id="start__frame"
+        trigger=".first-section"
+        frame-count="158"
+        files-src="/seq/start/SEQ_Start"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
 
+import AppSequence from '@/components/ui/AppSequence'
+
 export default {
+  components: { AppSequence },
   mounted () {
-    const canvas = document.getElementById('start__frame')
-    const context = canvas.getContext('2d')
+    this.makePin('.first-section__pin-content', '.first-section', false, '30 top')
+  },
+  methods: {
 
-    canvas.width = document.documentElement.clientWidth - 200
-    canvas.height = document.documentElement.clientHeight
-
-    const frameCount = 158
-    const currentFrame = index => (
-      `/seq/start/SEQ_Start(${index}).png`
-    )
-
-    const images = []
-    const film = {
-      frame: 0
-    }
-
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image()
-      img.src = currentFrame(i)
-      images.push(img)
-    }
-
-    this.gsap.to(film, {
-      frame: frameCount - 1,
-      snap: 'frame',
-      scrollTrigger: {
-        trigger: '.first-section',
-        scrub: 0.1,
-        pin: '.sequence__pin-content',
-        start: 'top top',
-        end: 'bottom bottom'
-        // markers: true
-      },
-      onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate,
-    })
-
-    images[0].onload = render
-
-    function render () {
-      context.clearRect(0, 0, canvas.width, canvas.height)
-      context.drawImage(images[film.frame], 0, 0, canvas.width, canvas.height)
-    }
   }
 }
 </script>
 
 <style lang="sass" scoped>
 .first-section
-  height: 3000px
+  height: 2000px
+
   &__title
     font-size: 38px
     font-weight: bold

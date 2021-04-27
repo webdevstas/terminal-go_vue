@@ -10,6 +10,19 @@ export default {
         this.gsap = gsap
         this.ScrollTrigger = ScrollTrigger
         this.TextPlugin = TextPlugin
+      },
+      methods: {
+        makePin (pinBock, trigger, markers = false, start = 'top top', end = 'bottom bottom') {
+          this.gsap.to(pinBock, {
+            scrollTrigger: {
+              trigger: trigger,
+              pin: pinBock,
+              start: start,
+              end: end,
+              markers: markers
+            }
+          })
+        }
       }
     })
   }
