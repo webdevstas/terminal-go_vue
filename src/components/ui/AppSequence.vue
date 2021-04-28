@@ -16,7 +16,7 @@ export default {
 
     const frameCount = this.frameCount
     const currentFrame = index => (
-      `${this.filesSrc}(${index}).png`
+      `static${this.filesSrc}(${index}).png`
     )
 
     const images = []

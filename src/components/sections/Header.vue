@@ -1,7 +1,10 @@
 <template>
   <header class="header">
     <router-link to="/" class="header__th-logo-link">
-      <img src="@/assets/img/icons/go_logo.svg" alt="" class="header__go-logo-img">
+      <div class="header-logo__block">
+        <img src="@/assets/img/icons/go_logo.svg" alt="" class="header__go-logo-img">
+        <img src="@/assets/img/icons/THGO_Logo.png" alt="" class="header__th-logo-img">
+      </div>
     </router-link>
     <div class="header__group_right">
       <button id="header__partner-btn" class="btn btn-outline-light" role="button"
@@ -22,7 +25,8 @@
           <Field
             type="tel"
             class="form-control"
-            name="phone" id="phone"
+            name="phone"
+            id="phone"
             v-model="requestPhone"
             :rules="phoneRules"
             :validateOnInput="true"/>
@@ -100,11 +104,21 @@ export default {
   z-index: 1000
   background-color: rgba(5, 5, 5, .9)
 
+  &-logo__block
+    display: flex
+    flex-direction: row
+    width: 100px
+    justify-content: space-between
+    align-items: center
+
   &__go-logo
     &-img
-      display: block
-      width: 20px
-
+      display: inline-block
+      width: auto
+      height: 40px
+  &__th-logo
+    &-img
+      height: 30px
   &__group
     &_right
       display: flex

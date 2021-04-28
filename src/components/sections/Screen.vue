@@ -2,8 +2,8 @@
   <section class="screen">
     <h2 class="section-title fade-in">Большой и чёткий экран</h2>
     <div class="screen-pin__content">
-      <div class="screen-img__wrap reveal fade-in">
-        <video id="video-frame" src="/1SEQ_Screen_Street.mp4" muted></video>
+      <div class="screen-img__wrap reveal">
+        <video id="video-frame" src="static/1SEQ_Screen_Street.mp4" muted></video>
         <img src="@/assets/img/half-screen.png" alt="" class="screen-img">
       </div>
       <div class="screen-left__cards">
@@ -39,9 +39,10 @@ export default {
   components: { AppCard },
 
   mounted () {
-    this.makePin('.screen-pin__content', '.screen', false, '+100 top')
+    this.makePin('.screen-pin__content', '.screen', false, '+120 top')
     this.playVideo()
     this.cards = this.gsap.utils.toArray('.card.screen-card')
+    this.scaleOutScreen()
     this.startCardAnim()
   },
 
@@ -77,6 +78,20 @@ export default {
           }
         }
       })
+    },
+
+    scaleOutScreen () {
+      this.gsap.from('.screen-img__wrap', {
+        scale: 1.4,
+        y: 220,
+        scrollTrigger: {
+          trigger: '.screen-img__wrap',
+          scrub: true,
+          // markers: true,
+          start: '100 top',
+          end: 'bottom bottom'
+        }
+      })
     }
   }
 }
@@ -94,7 +109,6 @@ export default {
 
     &__wrap
       position: absolute
-      height: 100vh
       transform: translateX(50%)
       right: 50%
       display: block
@@ -109,10 +123,9 @@ export default {
     display: flex
     position: relative
     flex-direction: column
-    //align-items: center
     width: 25%
     left: 50px
-    top: 100px
+    top: 120px
 
 .card
   margin-bottom: 50px

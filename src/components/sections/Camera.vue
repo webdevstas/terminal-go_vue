@@ -1,16 +1,16 @@
 <template>
   <section class="camera">
+    <h2 class="section-title fade-in">Видеоконтроль</h2>
     <div class="camera-pin__content">
-      <app-card class="camera-title__card fade-in">
-        <h2>Видеоконтроль</h2>
-      </app-card>
-      <AppSequence
-        id="camera"
-        trigger=".camera"
-        files-src="/seq/optic/camera"
-        frame-count="31"
-        start="30% top"
-      />
+      <div class="camera-wrapper">
+        <AppSequence
+          id="camera"
+          trigger=".camera"
+          files-src="/seq/optic/camera"
+          frame-count="31"
+          start="500 top"
+        />
+      </div>
     </div>
     <ul class="camera-prop__list">
       <li class="camera-prop__item fade-in">
@@ -40,15 +40,23 @@
 
 <script>
 import AppSequence from '@/components/ui/AppSequence'
-import AppCard from '@/components/ui/AppCard'
 
 export default {
   components: {
-    AppCard,
     AppSequence
   },
   mounted () {
-    this.makePin('.camera-pin__content', '.camera')
+    this.makePin('.camera-pin__content', '.camera', false, '90 top')
+    this.gsap.from('#camera', {
+      y: '-65vh',
+      scrollTrigger: {
+        trigger: '.camera-wrapper',
+        scrub: 1,
+        // markers: true,
+        start: 'top top',
+        end: '500 top'
+      }
+    })
   }
 }
 </script>
@@ -58,23 +66,15 @@ export default {
   height: 2500px
   position: relative
 
-  &-title__card
-    position: absolute
-    left: 0
-    top: 100px
-    background-color: rgba(105, 0, 153, 0.5)
-    width: 400px
-
-    & h2
-      font-size: 36px
-      text-transform: uppercase
-      text-align: center
+  &-wrapper
+    background-color: #131313
+    height: 100%
 
   &-prop
     &__list
       position: absolute
       right: 200px
-      top: 200px
+      top: 100px
       z-index: 100
       display: flex
       flex-direction: column
@@ -82,6 +82,8 @@ export default {
       list-style: none
       width: 50%
       height: 1200px
+
     &__item
-      font-size: 24px
+      font-size: 20px
+      font-family: Jura-reg
 </style>
