@@ -7,7 +7,7 @@
           <AppAnimList :items="propList" name="integrations"/>
         </div>
         <div class="integrations-col">
-          <figure class="integrations__img reveal">
+          <figure class="integrations__img reveal fade-in">
             <img src="@/assets/img/travels.png" alt="">
             <figcaption id="integrations__from"></figcaption>
             <figcaption id="integrations__to"></figcaption>

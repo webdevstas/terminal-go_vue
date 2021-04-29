@@ -48,11 +48,7 @@ export default {
 
   watch: {
     visibility: function () {
-      if (this.visibility) {
-        this.showAlert()
-      } else {
-        this.closeAlert()
-      }
+      this.visibility ? this.showAlert() : this.closeAlert()
     }
   }
 }

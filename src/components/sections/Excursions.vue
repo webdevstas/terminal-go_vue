@@ -2,7 +2,8 @@
   <section class="excursions">
     <div class="excursions-pin__content">
       <div class="excursions-grid">
-        <div class="excursions-grid__col">
+<!--        <div class="excursions-grid__col">-->
+        <h2 class="section-title fade-in">Управление городскими экскурсиями</h2>
           <div class="excursions__container reveal">
             <img alt="" src="@/assets/img/term-screen_alpha.png" class="excursions__terminal">
             <ul class="excursions__items-list">
@@ -16,27 +17,26 @@
                                                 class="excursions__item-img"></li>
             </ul>
           </div>
-        </div>
-        <div class="excursions-grid__col">
-          <app-card style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%)">
-            <h2 class="section-title excursions__title fade-in">Городские экскурсии</h2>
-            <AppAnimList :items="propList" name="excursions" style="color: #fff"/>
-          </app-card>
-        </div>
+<!--        </div>-->
+<!--        <div class="excursions-grid__col">-->
+<!--          <app-card style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%)">-->
+<!--            <h2 class="section-title excursions__title fade-in">Городские экскурсии</h2>-->
+<!--            <AppAnimList :items="propList" name="excursions" style="color: #fff"/>-->
+<!--          </app-card>-->
+<!--        </div>-->
       </div>
     </div>
-
   </section>
 </template>
 
 <script>
-import AppAnimList from '@/components/ui/AppAnimList'
-import AppCard from '@/components/ui/AppCard'
+// import AppAnimList from '@/components/ui/AppAnimList'
+// import AppCard from '@/components/ui/AppCard'
 
 export default {
   components: {
-    AppCard,
-    AppAnimList
+    // AppCard,
+    // AppAnimList
   },
 
   data () {
@@ -46,14 +46,12 @@ export default {
         'Возможность интеграции со сторонними сервисами',
         'Оплата через встроенный терминал',
         'Отслеживание статистики'
-      ],
-      listAnimOptions: {
-
-      }
+      ]
     }
   },
 
   mounted () {
+    // this.makePin('.excursions-pin__content', '.excursions')
     const screenItems = this.gsap.utils.toArray('.excursions__item')
     screenItems.forEach(item => {
       this.gsap.from(item, {
@@ -61,20 +59,13 @@ export default {
           trigger: item,
           scrub: true,
           // markers: true,
-          start: '150 bottom',
+          start: '350 bottom',
           end: '+=100'
         },
         opacity: 0,
-        y: 100,
+        y: -100,
         scale: 1.5
       })
-    })
-
-    this.gsap.to('.excursions-pin__content', {
-      scrollTrigger: {
-        trigger: '.excursions',
-        pin: '.excursions-pin__content'
-      }
     })
   }
 }
@@ -82,12 +73,12 @@ export default {
 
 <style lang="sass">
 .excursions
-  padding-top: 100px
-
+  padding-top: 70px
+  //height: 2000px
   &-grid
     display: grid
-    grid-template-columns: 1fr 2fr
-    align-items: center
+    grid-template-columns: 1fr
+    justify-items: center
 
   &__title
     text-align: center
@@ -97,7 +88,7 @@ export default {
 
   &__container
     position: relative
-    width: 400px
+    width: 549px
 
     & img
       max-width: 100%
@@ -110,10 +101,10 @@ export default {
   &__items-list
     list-style: none
     position: absolute
-    left: 19px
-    top: 86px
+    left: 26px
+    top: 119px
     padding: 0
-    width: 362px
+    width: 496px
 
   &__item
     height: max-content

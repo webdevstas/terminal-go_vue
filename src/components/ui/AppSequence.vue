@@ -24,11 +24,25 @@ export default {
       frame: 0
     }
 
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image()
-      img.src = currentFrame(i)
-      images.push(img)
-    }
+    const firstImg = new Image()
+    firstImg.src = currentFrame(1)
+    images.push(firstImg)
+
+    this.gsap.to(canvas, {
+      scrollTrigger: {
+        trigger: canvas,
+        // markers: true,
+        start: '-1000 center',
+        end: 'bottom bottom',
+        onEnter: () => {
+          for (let i = 2; i <= frameCount; i++) {
+            const img = new Image()
+            img.src = currentFrame(i)
+            images.push(img)
+          }
+        }
+      }
+    })
 
     this.gsap.to(film, {
       frame: frameCount - 1,
