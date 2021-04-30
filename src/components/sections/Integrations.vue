@@ -1,12 +1,12 @@
 <template>
   <section class="integrations">
-    <div class="integrations-pin__content">
-      <div class="integrations-grid">
-        <div class="integrations-col">
+    <div class="integrations__pin-content">
+      <div class="integrations__grid">
+        <div class="integrations__col">
           <h2 class="section-title fade-in">Возможные интеграции</h2>
           <AppAnimList :items="propList" name="integrations"/>
         </div>
-        <div class="integrations-col">
+        <div class="integrations__col">
           <figure class="integrations__img reveal fade-in">
             <img src="@/assets/img/travels.png" alt="">
             <figcaption id="integrations__from"></figcaption>
@@ -25,7 +25,7 @@ export default {
   components: { AppAnimList },
 
   mounted () {
-    this.makePin('.integrations-pin__content', '.integrations')
+    this.makePin('.integrations__pin-content', '.integrations')
     this.startCitiesAnim()
   },
 
@@ -127,7 +127,7 @@ export default {
 <style lang="sass" scoped>
 .integrations
   height: 1500px
-  &-grid
+  &__grid
     display: grid
     grid-template-columns: 2fr 1fr
     position: relative

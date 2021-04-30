@@ -1,8 +1,8 @@
 <template>
   <section class="excursions">
-    <div class="excursions-pin__content">
-      <div class="excursions-grid">
-<!--        <div class="excursions-grid__col">-->
+    <div class="excursions__pin-content">
+      <div class="excursions__grid">
+<!--        <div class="excursions__grid__col">-->
         <h2 class="section-title fade-in">Управление городскими экскурсиями</h2>
           <div class="excursions__container reveal">
             <img alt="" src="@/assets/img/term-screen_alpha.png" class="excursions__terminal">
@@ -17,26 +17,16 @@
                                                 class="excursions__item-img"></li>
             </ul>
           </div>
-<!--        </div>-->
-<!--        <div class="excursions-grid__col">-->
-<!--          <app-card style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%)">-->
-<!--            <h2 class="section-title excursions__title fade-in">Городские экскурсии</h2>-->
-<!--            <AppAnimList :items="propList" name="excursions" style="color: #fff"/>-->
-<!--          </app-card>-->
-<!--        </div>-->
       </div>
     </div>
   </section>
 </template>
 
 <script>
-// import AppAnimList from '@/components/ui/AppAnimList'
-// import AppCard from '@/components/ui/AppCard'
 
 export default {
   components: {
-    // AppCard,
-    // AppAnimList
+
   },
 
   data () {
@@ -51,7 +41,7 @@ export default {
   },
 
   mounted () {
-    // this.makePin('.excursions-pin__content', '.excursions')
+    // this.makePin('.excursions__pin__content', '.excursions')
     const screenItems = this.gsap.utils.toArray('.excursions__item')
     screenItems.forEach(item => {
       this.gsap.from(item, {
@@ -75,7 +65,7 @@ export default {
 .excursions
   padding-top: 70px
   //height: 2000px
-  &-grid
+  &__grid
     display: grid
     grid-template-columns: 1fr
     justify-items: center

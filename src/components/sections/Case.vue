@@ -6,7 +6,7 @@
         <div class="case__item">
           <AppAnimList :items="propList" name="case"/>
         </div>
-        <div class="case-film__wrapper reveal">
+        <div class="case__film-wrapper reveal">
           <AppSequence
             id="ip__frame"
             trigger=".case"
@@ -73,7 +73,7 @@ export default {
       margin-left: 50px
       font-size: 30px
 
-  &-film__wrapper
+  &__film-wrapper
     position: absolute
     left: 200px
     top: -70px

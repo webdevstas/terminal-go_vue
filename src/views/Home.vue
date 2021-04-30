@@ -41,6 +41,20 @@ export default {
         }
       })
     })
+
+    this.gsap.utils.toArray('.fade-out').forEach(item => {
+      this.gsap.to(item, {
+        opacity: 0,
+        y: -50,
+        scrollTrigger: {
+          // markers: true,
+          trigger: item,
+          scrub: true,
+          start: 'top +=150',
+          end: 'bottom +=150'
+        }
+      })
+    })
   }
 }
 </script>

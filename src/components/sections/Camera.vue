@@ -1,8 +1,8 @@
 <template>
   <section class="camera">
     <h2 class="section-title fade-in">Видеоконтроль</h2>
-    <div class="camera-pin__content">
-      <div class="camera-wrapper">
+    <div class="camera__pin-content">
+      <div class="camera__wrapper">
         <AppSequence
           id="camera"
           trigger=".camera"
@@ -12,26 +12,26 @@
         />
       </div>
     </div>
-    <ul class="camera-prop__list">
-      <li class="camera-prop__item fade-in">
+    <ul class="camera__prop-list">
+      <li class="camera__prop-item fade-in">
         <h2 class="">Система видеонаблюдения высокой чёткости 4к</h2>
       </li>
-      <li class="camera-prop__item fade-in">
+      <li class="camera__prop-item fade-in">
         <h2 class="">Подключение к городской сети видеонаблюдения</h2>
       </li>
-      <li class="camera-prop__item fade-in">
+      <li class="camera__prop-item fade-in">
         <h2 class="">Защищенная сеть связи на базе оптоволоконной линии</h2>
       </li>
-      <li class="camera-prop__item fade-in">
+      <li class="camera__prop-item fade-in">
         <h2 class="">Хранение данных с доступом муниципальных служб и силовых структур</h2>
       </li>
-      <li class="camera-prop__item fade-in">
+      <li class="camera__prop-item fade-in">
         <h2 class="">Нейросеть на базе "Speclab", распознавание лиц</h2>
       </li>
-      <li class="camera-prop__item fade-in">
+      <li class="camera__prop-item fade-in">
         <h2 class="">Опознавание лиц, находящихся в розыске</h2>
       </li>
-      <li class="camera-prop__item fade-in">
+      <li class="camera__prop-item fade-in">
         <h2 class="">Сбор аналитической тепловой карты по проходимости на местах размещения</h2>
       </li>
     </ul>
@@ -46,11 +46,11 @@ export default {
     AppSequence
   },
   mounted () {
-    this.makePin('.camera-pin__content', '.camera', false, '90 top')
+    this.makePin('.camera__pin-content', '.camera', false, '90 top')
     this.gsap.from('#camera', {
       y: '-65vh',
       scrollTrigger: {
-        trigger: '.camera-wrapper',
+        trigger: '.camera__wrapper',
         scrub: 1,
         // markers: true,
         start: 'top top',
@@ -66,12 +66,12 @@ export default {
   height: 2500px
   position: relative
 
-  &-wrapper
+  &__wrapper
     background-color: #131313
     height: 100%
 
-  &-prop
-    &__list
+  &__prop
+    &-list
       position: absolute
       right: 200px
       top: 100px
@@ -83,7 +83,7 @@ export default {
       width: 50%
       height: 1200px
 
-    &__item
+    &-item
       font-size: 20px
       font-family: Jura-reg
 </style>

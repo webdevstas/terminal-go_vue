@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <router-link to="/" class="header__th-logo-link">
-      <div class="header-logo__block">
+      <div class="header__logo-block">
         <img src="@/assets/img/icons/go_logo.svg" alt="" class="header__go-logo-img">
         <img src="@/assets/img/icons/THGO_Logo.png" alt="" class="header__th-logo-img">
       </div>
@@ -104,7 +104,7 @@ export default {
   z-index: 1000
   background-color: rgba(5, 5, 5, .9)
 
-  &-logo__block
+  &__logo-block
     display: flex
     flex-direction: row
     width: 100px
