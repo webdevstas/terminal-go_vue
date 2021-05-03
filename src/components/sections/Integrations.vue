@@ -26,20 +26,19 @@ export default {
 
   mounted () {
     this.makePin('.integrations__pin-content', '.integrations')
-    this.startCitiesAnim()
+    this.startCitiesAnim(this.makeTl(), '#integrations__to', this.cities)
   },
 
   data () {
     return {
-      propList: ['Диспетчерские службы города', 'Яндекс, Booking', 'Kassir.ru, Библио Глобус', 'Экскурсионные Бюро']
+      propList: ['Диспетчерские службы города', 'Яндекс, Booking', 'Kassir.ru, Библио Глобус', 'Экскурсионные Бюро'],
+      cities: ['Москва', 'Ярославль', 'Санкт-Петербург', 'Новосибирск', 'Краснодар', 'Нижневартовск', 'Мурманск', 'Минск', 'Новокузнецк', 'Волгоград', 'Владивосток']
     }
   },
 
   methods: {
-    startCitiesAnim () {
-      const from = document.querySelector('#integrations__from')
-      const to = document.querySelector('#integrations__to')
-      const master = this.gsap.timeline({
+    makeTl () {
+      const tl = this.gsap.timeline({
         repeat: -1,
         repeatDelay: 1,
         scrollTrigger: {
@@ -49,76 +48,30 @@ export default {
         }
       })
 
-      master.to(from, {
+      tl.to('#integrations__from', {
         duration: 1,
         text: 'Сочи'
       })
-        .to(to, {
+
+      return tl
+    },
+
+    startCitiesAnim (tl, el, arr) {
+      const insideArr = arr.slice(0)
+
+      if (!insideArr.length) {
+        return tl
+      } else {
+        tl.to(el, {
           duration: 1,
-          text: 'Москва',
+          text: insideArr[0],
           yoyo: true,
           repeat: 1
         })
-        .to(to, {
-          duration: 1,
-          text: 'Санкт-Петербург',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Ярославль',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Новосибирск',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Краснодар',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Нижневартовск',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Мурманск',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Минск',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Новокузнецк',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Волгоград',
-          yoyo: true,
-          repeat: 1
-        })
-        .to(to, {
-          duration: 1,
-          text: 'Владивосток',
-          yoyo: true,
-          repeat: 1
-        })
+
+        insideArr.shift()
+        return this.startCitiesAnim(tl, el, insideArr)
+      }
     }
   }
 }
@@ -127,6 +80,7 @@ export default {
 <style lang="sass" scoped>
 .integrations
   height: 1500px
+
   &__grid
     display: grid
     grid-template-columns: 2fr 1fr
@@ -154,4 +108,7 @@ export default {
   left: 12%
   color: #000
   font-size: 20px
+
+.section-title
+  text-align: left
 </style>
