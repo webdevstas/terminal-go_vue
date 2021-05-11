@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { markRaw } from 'vue'
 
 /* eslint-disable no-undef */

@@ -2,7 +2,7 @@
   <section class="first-section">
     <h1 class="section-title">
       Интерактивная городская навигационная система</h1>
-    <p class="first-section__preview-text fade-out">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab impedit ipsa, itaque iure magnam nobis nostrum officia quidem voluptas voluptates.</p>
+    <p class="first-section__preview-text fade-out">Умный городской терминал меняет восприятие города, с ним удобство взаимодействия с инфраструктурой выходит на максимально комфортный уровень, а его внешний вид станет отличным дополнением местных достопримечательностей.</p>
     <div class="first-section__pin-content">
       <AppSequence
         id="start__frame"
@@ -14,14 +14,14 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 
 import AppSequence from '@/components/ui/AppSequence'
 
 export default {
   components: { AppSequence },
   mounted () {
-    this.makePin('.first-section__pin-content', '.first-section', false, '75 top')
+    this.makePin('.first-section__pin-content', '.first-section', false, '100 top')
   },
   methods: {
     startTextAnim () {

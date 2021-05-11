@@ -1,15 +1,19 @@
 <template>
   <header class="header">
-    <router-link to="/" class="header__th-logo-link">
-      <div class="header__logo-block">
-        <img src="@/assets/img/icons/go_logo.svg" alt="" class="header__go-logo-img">
-        <img src="@/assets/img/icons/THGO_Logo.png" alt="" class="header__th-logo-img">
+    <div class="container">
+      <div class="header__row">
+        <router-link to="/" class="header__th-logo-link">
+          <div class="header__logo-block">
+            <img src="@/assets/img/icons/go_logo.svg" alt="" class="header__go-logo-img">
+            <img src="@/assets/img/icons/THGO_Logo.png" alt="" class="header__th-logo-img">
+          </div>
+        </router-link>
+        <div class="header__group_right">
+          <button id="header__partner-btn" class="btn btn-outline-light" role="button"
+                  @click="modalVisible = !modalVisible">Стать партнёром
+          </button>
+        </div>
       </div>
-    </router-link>
-    <div class="header__group_right">
-      <button id="header__partner-btn" class="btn btn-outline-light" role="button"
-              @click="modalVisible = !modalVisible">Стать партнёром
-      </button>
     </div>
   </header>
   <teleport to="body">
@@ -52,7 +56,7 @@
   </teleport>
 </template>
 
-<script>
+<script lang="ts">
 import AppModal from '@/components/ui/AppModal'
 import { Field, Form, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
@@ -95,14 +99,17 @@ export default {
 <style lang="sass" scoped>
 .header
   position: fixed
-  width: 100vw
-  display: flex
-  flex-direction: row
-  padding: 10px 30px
-  justify-content: space-between
-  align-items: center
+  padding: 10px 0
   z-index: 1000
   background-color: rgba(5, 5, 5, .9)
+  width: 100%
+
+  &__row
+    display: flex
+    flex-direction: row
+    width: 100%
+    align-items: center
+    justify-content: space-between
 
   &__logo-block
     display: flex
@@ -116,9 +123,11 @@ export default {
       display: inline-block
       width: auto
       height: 40px
+
   &__th-logo
     &-img
       height: 30px
+
   &__group
     &_right
       display: flex
@@ -126,7 +135,6 @@ export default {
       flex-wrap: wrap
       align-items: center
       justify-content: space-between
-      width: 250px
 
 .burger
   cursor: pointer

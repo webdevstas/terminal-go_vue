@@ -22,7 +22,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 
 export default {
   components: {
@@ -63,8 +63,6 @@ export default {
 
 <style lang="sass">
 .excursions
-  padding-top: 70px
-  //height: 2000px
   &__grid
     display: grid
     grid-template-columns: 1fr

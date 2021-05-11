@@ -1,16 +1,18 @@
 <template>
-  <Header/>
-  <div class="content-area">
-    <router-view></router-view>
+  <div>
+    <Header />
+    <div class="content-area">
+      <router-view />
+    </div>
+    <Footer />
   </div>
-  <Footer/>
 </template>
 
-<script>
+<script lang="ts">
 
 import '@/assets/sass/global.sass'
-import Header from '@/components/sections/Header'
-import Footer from '@/components/sections/Footer'
+import Header from './components/sections/Header.vue'
+import Footer from './components/sections/Footer.vue'
 
 export default {
   name: 'App',
@@ -18,7 +20,7 @@ export default {
     Header,
     Footer
   },
-  data () {
+  data() {
     return {}
   }
 }

@@ -5,6 +5,7 @@ import Map from '@/views/Map'
 import Conditions from '@/views/Conditions'
 import Catalog from '@/views/Catalog'
 import CatalogItem from '@/views/CatalogItem'
+import three from '@/views/3d'
 
 const routes = [
   {
@@ -30,6 +31,10 @@ const routes = [
   {
     path: '/katalog/:slug',
     component: CatalogItem
+  },
+  {
+    path: '/3d',
+    component: three
   }
 ]
 

@@ -30,7 +30,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import AppCard from '@/components/ui/AppCard'
 
 export default {

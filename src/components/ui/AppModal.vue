@@ -8,7 +8,7 @@
   <div class="backdrop" v-if="visibility" @click="$emit('close')"></div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: ['title', 'visibility', 'modalSize'],
   emits: ['close'],

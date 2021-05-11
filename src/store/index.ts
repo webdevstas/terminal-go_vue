@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
-import terminals from '@/store/modules/terminals'
-import clusters from '@/store/modules/clusters'
+import terminals from './modules/terminals'
+import clusters from './modules/clusters'
 
 export default createStore({
   state: {
@@ -11,8 +11,7 @@ export default createStore({
       state.mapInitialized = true
     }
   },
-  actions: {
-  },
+  actions: {},
   modules: {
     terminals,
     clusters

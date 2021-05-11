@@ -18,7 +18,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import AppAnimList from '@/components/ui/AppAnimList'
 
 export default {

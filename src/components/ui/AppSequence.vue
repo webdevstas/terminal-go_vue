@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: ['id', 'canvasWidth', 'canvasHeight', 'frameCount', 'filesSrc', 'trigger', 'start', 'end'],
   mounted () {

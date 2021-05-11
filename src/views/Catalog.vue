@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import AppCatalogCard from '@/components/ui/AppCatalogCard'
 
 export default {

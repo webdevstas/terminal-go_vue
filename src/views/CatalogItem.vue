@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 
 import AppMap from '@/components/ui/AppMap'
 export default {

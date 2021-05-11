@@ -2,14 +2,14 @@
   <div>
     <FirstSection/>
     <Case/>
-    <Screen />
-    <Camera />
+    <Screen/>
+    <Camera/>
     <Excursions/>
     <Integrations/>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import FirstSection from '@/components/sections/FirstSection'
 import Case from '@/components/sections/Case'
 import Excursions from '@/components/sections/Excursions'

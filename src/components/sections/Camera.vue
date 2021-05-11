@@ -38,7 +38,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import AppSequence from '@/components/ui/AppSequence'
 
 export default {
@@ -46,9 +46,9 @@ export default {
     AppSequence
   },
   mounted () {
-    this.makePin('.camera__pin-content', '.camera', false, '90 top')
+    this.makePin('.camera__pin-content', '.camera', false, '59 top')
     this.gsap.from('#camera', {
-      y: '-65vh',
+      y: '-55vh',
       scrollTrigger: {
         trigger: '.camera__wrapper',
         scrub: 1,
@@ -61,14 +61,17 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .camera
   height: 2500px
   position: relative
+  background-color: darkslateblue
 
   &__wrapper
-    background-color: #131313
-    height: 100%
+    background-color: #342c60
+    height: 90vh
+    position: relative
+    z-index: 100
 
   &__prop
     &-list
@@ -86,4 +89,7 @@ export default {
     &-item
       font-size: 20px
       font-family: Jura-reg
+#camera
+  position: absolute
+  top: -10vh
 </style>
