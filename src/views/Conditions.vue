@@ -1,7 +1,10 @@
 <template>
   <div class="container">
-    <h1 class="section-title">Условия размещения рекламы</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem consequatur eaque laborum officiis
+    <h1 class="section-title">
+      Условия размещения рекламы
+    </h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem consequatur eaque laborum officiis
       praesentium quibusdam totam vel. Ab asperiores consequatur corporis cupiditate debitis, enim expedita itaque
       laudantium magni maiores mollitia nesciunt nihil perspiciatis repellat sequi tenetur velit? At eaque enim est
       excepturi fugit hic laboriosam laborum maxime, nihil non odio officiis praesentium quaerat qui quidem sed
@@ -35,7 +38,8 @@
       explicabo maiores minima molestiae mollitia nobis nulla placeat praesentium quia repellat, ut. Alias commodi,
       consequuntur delectus incidunt maiores, molestiae nesciunt nulla numquam placeat qui, sint sit unde velit.
       Accusamus accusantium dolor laboriosam necessitatibus nisi quas quia quisquam recusandae rem. Accusantium
-      aspernatur cupiditate porro quae.</p>
+      aspernatur cupiditate porro quae.
+    </p>
   </div>
 </template>
 

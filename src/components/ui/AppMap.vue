@@ -1,13 +1,30 @@
 <template>
-  <h1 class="section-title">{{ title }}</h1>
-  <div id="map"></div>
-  <div class="stats" v-if="statsVisible">
-    <div class="stats-col">Адрес</div>
-    <div class="stats-col">Дневная проходимость</div>
-    <div class="stats-col">Месячная проходимость</div>
-    <div class="stats-col">{{ stats.address }}</div>
-    <div class="stats-col">{{ stats.statistic.dayViews }}</div>
-    <div class="stats-col">{{ stats.statistic.monthViews }}</div>
+  <h1 class="section-title">
+    {{ title }}
+  </h1>
+  <div id="map" />
+  <div
+    v-if="statsVisible"
+    class="stats"
+  >
+    <div class="stats-col">
+      Адрес
+    </div>
+    <div class="stats-col">
+      Дневная проходимость
+    </div>
+    <div class="stats-col">
+      Месячная проходимость
+    </div>
+    <div class="stats-col">
+      {{ stats.address }}
+    </div>
+    <div class="stats-col">
+      {{ stats.statistic.dayViews }}
+    </div>
+    <div class="stats-col">
+      {{ stats.statistic.monthViews }}
+    </div>
   </div>
 </template>
 

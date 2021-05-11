@@ -1,11 +1,24 @@
 <template>
-  <div class="modal" v-if="visibility" :style="modalSize">
-    <h2 class="modal-title" v-if="title">{{ title }}</h2>
+  <div
+    v-if="visibility"
+    class="modal"
+    :style="modalSize"
+  >
+    <h2
+      v-if="title"
+      class="modal-title"
+    >
+      {{ title }}
+    </h2>
     <div class="modal-content">
-      <slot></slot>
+      <slot />
     </div>
   </div>
-  <div class="backdrop" v-if="visibility" @click="$emit('close')"></div>
+  <div
+    v-if="visibility"
+    class="backdrop"
+    @click="$emit('close')"
+  />
 </template>
 
 <script lang="ts">

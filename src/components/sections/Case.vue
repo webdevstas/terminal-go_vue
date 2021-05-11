@@ -1,10 +1,15 @@
 <template>
   <section class="case">
     <div class="case__pin-content">
-      <h2 class="section-title case__title fade-in">Антивандальный корпус</h2>
+      <h2 class="section-title case__title fade-in">
+        Антивандальный корпус
+      </h2>
       <div class="case__list-wrapper">
         <div class="case__item">
-          <AppAnimList :items="propList" name="case"/>
+          <AppAnimList
+            :items="propList"
+            name="case"
+          />
         </div>
         <div class="case__film-wrapper reveal">
           <AppSequence

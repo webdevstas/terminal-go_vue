@@ -1,6 +1,8 @@
 <template>
   <section class="camera">
-    <h2 class="section-title fade-in">Видеоконтроль</h2>
+    <h2 class="section-title fade-in">
+      Видеоконтроль
+    </h2>
     <div class="camera__pin-content">
       <div class="camera__wrapper">
         <AppSequence
@@ -14,25 +16,39 @@
     </div>
     <ul class="camera__prop-list">
       <li class="camera__prop-item fade-in">
-        <h2 class="">Система видеонаблюдения высокой чёткости 4к</h2>
+        <h2 class="">
+          Система видеонаблюдения высокой чёткости 4к
+        </h2>
       </li>
       <li class="camera__prop-item fade-in">
-        <h2 class="">Подключение к городской сети видеонаблюдения</h2>
+        <h2 class="">
+          Подключение к городской сети видеонаблюдения
+        </h2>
       </li>
       <li class="camera__prop-item fade-in">
-        <h2 class="">Защищенная сеть связи на базе оптоволоконной линии</h2>
+        <h2 class="">
+          Защищенная сеть связи на базе оптоволоконной линии
+        </h2>
       </li>
       <li class="camera__prop-item fade-in">
-        <h2 class="">Хранение данных с доступом муниципальных служб и силовых структур</h2>
+        <h2 class="">
+          Хранение данных с доступом муниципальных служб и силовых структур
+        </h2>
       </li>
       <li class="camera__prop-item fade-in">
-        <h2 class="">Нейросеть на базе "Speclab", распознавание лиц</h2>
+        <h2 class="">
+          Нейросеть на базе "Speclab", распознавание лиц
+        </h2>
       </li>
       <li class="camera__prop-item fade-in">
-        <h2 class="">Опознавание лиц, находящихся в розыске</h2>
+        <h2 class="">
+          Опознавание лиц, находящихся в розыске
+        </h2>
       </li>
       <li class="camera__prop-item fade-in">
-        <h2 class="">Сбор аналитической тепловой карты по проходимости на местах размещения</h2>
+        <h2 class="">
+          Сбор аналитической тепловой карты по проходимости на местах размещения
+        </h2>
       </li>
     </ul>
   </section>

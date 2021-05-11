@@ -1,7 +1,21 @@
 <template>
-  <div :class="['alert', type]" v-if="visible" @click="closeAlert">
-    <h2 :class="['alert-title', type]" v-if="title">{{ title }}</h2>
-    <p :class="['alert-text', type]" v-if="message">{{ message }}</p>
+  <div
+    v-if="visible"
+    :class="['alert', type]"
+    @click="closeAlert"
+  >
+    <h2
+      v-if="title"
+      :class="['alert-title', type]"
+    >
+      {{ title }}
+    </h2>
+    <p
+      v-if="message"
+      :class="['alert-text', type]"
+    >
+      {{ message }}
+    </p>
   </div>
 </template>
 
@@ -15,6 +29,12 @@ export default {
     return {
       visible: this.visibility,
       timeout: null
+    }
+  },
+
+  watch: {
+    visibility: function () {
+      this.visibility ? this.showAlert() : this.closeAlert()
     }
   },
 
@@ -43,12 +63,6 @@ export default {
           clearTimeout(this.timeout)
         }
       })
-    }
-  },
-
-  watch: {
-    visibility: function () {
-      this.visibility ? this.showAlert() : this.closeAlert()
     }
   }
 }

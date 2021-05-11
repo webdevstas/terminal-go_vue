@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <AppMap title="Карта расположения терминалов" :terminals="terminals" />
+    <AppMap
+      title="Карта расположения терминалов"
+      :terminals="terminals"
+    />
   </div>
 </template>
 

@@ -3,14 +3,22 @@
     <div class="integrations__pin-content">
       <div class="integrations__grid">
         <div class="integrations__col">
-          <h2 class="section-title fade-in">Возможные интеграции</h2>
-          <AppAnimList :items="propList" name="integrations"/>
+          <h2 class="section-title fade-in">
+            Возможные интеграции
+          </h2>
+          <AppAnimList
+            :items="propList"
+            name="integrations"
+          />
         </div>
         <div class="integrations__col">
           <figure class="integrations__img reveal fade-in">
-            <img src="@/assets/img/travels.png" alt="">
-            <figcaption id="integrations__from"></figcaption>
-            <figcaption id="integrations__to"></figcaption>
+            <img
+              src="@/assets/img/travels.png"
+              alt=""
+            >
+            <figcaption id="integrations__from" />
+            <figcaption id="integrations__to" />
           </figure>
         </div>
       </div>
@@ -24,16 +32,16 @@ import AppAnimList from '@/components/ui/AppAnimList'
 export default {
   components: { AppAnimList },
 
-  mounted () {
-    this.makePin('.integrations__pin-content', '.integrations')
-    this.startCitiesAnim(this.makeTl(), '#integrations__to', this.cities)
-  },
-
   data () {
     return {
       propList: ['Диспетчерские службы города', 'Яндекс, Booking', 'Kassir.ru, Библио Глобус', 'Экскурсионные Бюро'],
       cities: ['Москва', 'Ярославль', 'Санкт-Петербург', 'Новосибирск', 'Краснодар', 'Нижневартовск', 'Мурманск', 'Минск', 'Новокузнецк', 'Волгоград', 'Владивосток']
     }
+  },
+
+  mounted () {
+    this.makePin('.integrations__pin-content', '.integrations')
+    this.startCitiesAnim(this.makeTl(), '#integrations__to', this.cities)
   },
 
   methods: {

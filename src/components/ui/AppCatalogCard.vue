@@ -1,8 +1,18 @@
 <template>
-  <router-link :to="`/katalog/${link}`" class="catalog-card__link">
-    <div class="catalog-card" :style="{backgroundImage: `url(${image})`}">
-      <h2 class="catalog-card__title">{{ title }}</h2>
-      <p class="catalog-card__description">{{ description }}</p>
+  <router-link
+    :to="`/katalog/${link}`"
+    class="catalog-card__link"
+  >
+    <div
+      class="catalog-card"
+      :style="{backgroundImage: `url(${image})`}"
+    >
+      <h2 class="catalog-card__title">
+        {{ title }}
+      </h2>
+      <p class="catalog-card__description">
+        {{ description }}
+      </p>
     </div>
   </router-link>
 </template>

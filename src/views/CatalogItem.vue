@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <AppMap :terminals="terminals" :title="cluster.title" />
+    <AppMap
+      :terminals="terminals"
+      :title="cluster.title"
+    />
   </div>
 </template>
 

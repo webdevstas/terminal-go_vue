@@ -2,15 +2,31 @@
   <header class="header">
     <div class="container">
       <div class="header__row">
-        <router-link to="/" class="header__th-logo-link">
+        <router-link
+          to="/"
+          class="header__th-logo-link"
+        >
           <div class="header__logo-block">
-            <img src="@/assets/img/icons/go_logo.svg" alt="" class="header__go-logo-img">
-            <img src="@/assets/img/icons/THGO_Logo.png" alt="" class="header__th-logo-img">
+            <img
+              src="@/assets/img/icons/go_logo.svg"
+              alt=""
+              class="header__go-logo-img"
+            >
+            <img
+              src="@/assets/img/icons/THGO_Logo.png"
+              alt=""
+              class="header__th-logo-img"
+            >
           </div>
         </router-link>
         <div class="header__group_right">
-          <button id="header__partner-btn" class="btn btn-outline-light" role="button"
-                  @click="modalVisible = !modalVisible">Стать партнёром
+          <button
+            id="header__partner-btn"
+            class="btn btn-outline-light"
+            role="button"
+            @click="modalVisible = !modalVisible"
+          >
+            Стать партнёром
           </button>
         </div>
       </div>
@@ -20,29 +36,47 @@
     <AppModal
       :title="modalTitle"
       :visibility="modalVisible"
+      :modal-size="{height: '350px', width: '500px'}"
       @close="modalVisible = false"
-      :modalSize="{height: '350px', width: '500px'}">
-      <Form action="" class="request-form" @submit="submitRequest">
-        <ErrorMessage name="phone" :class="'danger form-error'"/>
+    >
+      <Form
+        action=""
+        class="request-form"
+        @submit="submitRequest"
+      >
+        <ErrorMessage
+          name="phone"
+          :class="'danger form-error'"
+        />
         <div class="input-block">
           <label for="phone">Телефон:</label>
           <Field
+            id="phone"
+            v-model="requestPhone"
             type="tel"
             class="form-control"
             name="phone"
-            id="phone"
-            v-model="requestPhone"
             :rules="phoneRules"
-            :validateOnInput="true"/>
+            :validate-on-input="true"
+          />
         </div>
         <div class="input-block">
-          <button type="submit" class="request btn btn-outline-success">Отправить</button>
+          <button
+            type="submit"
+            class="request btn btn-outline-success"
+          >
+            Отправить
+          </button>
         </div>
         <div class="modal-policy">
-          <p class="modal-policy__text">Нажимая кнопку "Отправить" вы подтверждаете своё согласие с
-            <a href="#"
-               class="modal-policy__link"
-               @click.prevent="goTo('/politika-konfidencialnosti')">политикой конфиденциальности</a></p>
+          <p class="modal-policy__text">
+            Нажимая кнопку "Отправить" вы подтверждаете своё согласие с
+            <a
+              href="#"
+              class="modal-policy__link"
+              @click.prevent="goTo('/politika-konfidencialnosti')"
+            >политикой конфиденциальности</a>
+          </p>
         </div>
       </Form>
     </AppModal>
@@ -50,8 +84,8 @@
       title="Заявка успешно отправлена"
       :visibility="alertVisible"
       type="success"
-      @alertClosed="alertVisible = false"
       message="Спасибо! Ближайшее время мы с вами свяжемся."
+      @alertClosed="alertVisible = false"
     />
   </teleport>
 </template>

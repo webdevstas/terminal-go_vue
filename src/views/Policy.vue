@@ -1,8 +1,11 @@
 <template>
   <div>
     <div class="container">
-      <h1 class="section-title">Политика конфиденциальности</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab eum ex officiis reprehenderit voluptatum.
+      <h1 class="section-title">
+        Политика конфиденциальности
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab eum ex officiis reprehenderit voluptatum.
         Accusamus
         aliquam at deleniti, explicabo fugit inventore nam necessitatibus non quaerat, quod sed sequi sunt vitae. Aut
         eos
@@ -42,7 +45,8 @@
         magnam magni nisi placeat possimus quasi quidem quisquam quos veniam vero. Ab accusamus amet aperiam autem
         blanditiis culpa cupiditate distinctio dolorem eos explicabo harum ipsa iste iusto labore, magnam magni maiores
         maxime modi mollitia nisi non officiis optio perferendis perspiciatis placeat porro praesentium quam quas
-        reprehenderit saepe temporibus voluptas voluptate voluptatum! Dolorum, perspiciatis.</p>
+        reprehenderit saepe temporibus voluptas voluptate voluptatum! Dolorum, perspiciatis.
+      </p>
     </div>
   </div>
 </template>

@@ -2,21 +2,47 @@
   <section class="excursions">
     <div class="excursions__pin-content">
       <div class="excursions__grid">
-<!--        <div class="excursions__grid__col">-->
-        <h2 class="section-title fade-in">Управление городскими экскурсиями</h2>
-          <div class="excursions__container reveal">
-            <img alt="" src="@/assets/img/term-screen_alpha.png" class="excursions__terminal">
-            <ul class="excursions__items-list">
-              <li class="excursions__item"><img src="@/assets/img/screen-item-1.jpg" alt=""
-                                                class="excursions__item-img"></li>
-              <li class="excursions__item"><img src="@/assets/img/screen-item-2.jpg" alt=""
-                                                class="excursions__item-img"></li>
-              <li class="excursions__item"><img src="@/assets/img/screen-item-3.jpg" alt=""
-                                                class="excursions__item-img"></li>
-              <li class="excursions__item"><img src="@/assets/img/screen-item-4.jpg" alt=""
-                                                class="excursions__item-img"></li>
-            </ul>
-          </div>
+        <!--        <div class="excursions__grid__col">-->
+        <h2 class="section-title fade-in">
+          Управление городскими экскурсиями
+        </h2>
+        <div class="excursions__container reveal">
+          <img
+            alt=""
+            src="@/assets/img/term-screen_alpha.png"
+            class="excursions__terminal"
+          >
+          <ul class="excursions__items-list">
+            <li class="excursions__item">
+              <img
+                src="@/assets/img/screen-item-1.jpg"
+                alt=""
+                class="excursions__item-img"
+              >
+            </li>
+            <li class="excursions__item">
+              <img
+                src="@/assets/img/screen-item-2.jpg"
+                alt=""
+                class="excursions__item-img"
+              >
+            </li>
+            <li class="excursions__item">
+              <img
+                src="@/assets/img/screen-item-3.jpg"
+                alt=""
+                class="excursions__item-img"
+              >
+            </li>
+            <li class="excursions__item">
+              <img
+                src="@/assets/img/screen-item-4.jpg"
+                alt=""
+                class="excursions__item-img"
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

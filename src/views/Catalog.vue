@@ -1,8 +1,14 @@
 <template>
   <div class="container">
     <div class="catalog">
-      <AppCatalogCard :title="cluster.title" :description="cluster.description" :link="cluster.link" :image="cluster.image"
-                      v-for="cluster in clusters" :key="cluster.id"/>
+      <AppCatalogCard
+        v-for="cluster in clusters"
+        :key="cluster.id"
+        :title="cluster.title"
+        :description="cluster.description"
+        :link="cluster.link"
+        :image="cluster.image"
+      />
     </div>
   </div>
 </template>

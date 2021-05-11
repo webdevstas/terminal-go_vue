@@ -1,6 +1,10 @@
 <template>
   <ul :class="`${name}-list`">
-    <li class="list-item" v-for="(item, i) in items" :key="i">
+    <li
+      v-for="(item, i) in items"
+      :key="i"
+      class="list-item"
+    >
       {{ item }}
     </li>
   </ul>
