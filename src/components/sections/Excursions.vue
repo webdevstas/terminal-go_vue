@@ -50,7 +50,10 @@
 
 <script lang="ts">
 
-export default {
+import {defineComponent} from "vue"
+import TweenTarget = gsap.TweenTarget;
+
+export default defineComponent({
   components: {
 
   },
@@ -66,11 +69,11 @@ export default {
     }
   },
 
-  mounted () {
+  mounted: function () {
     // this.makePin('.excursions__pin__content', '.excursions')
-    const screenItems = this.gsap.utils.toArray('.excursions__item')
-    screenItems.forEach(item => {
-      this.gsap.from(item, {
+    const screenItems = this.$gsap.utils.toArray<string>('.excursions__item')
+    screenItems.forEach((item) => {
+      this.$gsap.from(item, {
         scrollTrigger: {
           trigger: item,
           scrub: true,
@@ -84,7 +87,7 @@ export default {
       })
     })
   }
-}
+})
 </script>
 
 <style lang="sass">

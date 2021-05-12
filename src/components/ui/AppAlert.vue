@@ -1,18 +1,18 @@
 <template>
   <div
     v-if="visible"
-    :class="['alert', type]"
+    :class="['alert', msgType]"
     @click="closeAlert"
   >
     <h2
       v-if="title"
-      :class="['alert-title', type]"
+      :class="['alert-title', msgType]"
     >
       {{ title }}
     </h2>
     <p
       v-if="message"
-      :class="['alert-text', type]"
+      :class="['alert-text', msgType]"
     >
       {{ message }}
     </p>
@@ -20,15 +20,21 @@
 </template>
 
 <script lang="ts">
-export default {
-  props: ['type', 'title', 'message', 'visibility'],
+import {defineComponent} from "vue"
 
+export default defineComponent({
+  props: {
+    msgType: {type: String, default: 'success'},
+    title: {type: String, default: ''},
+    message: {type: String, default: ''},
+    visibility: {type: Boolean, default: false}
+  },
   emits: ['alertClosed'],
 
-  data () {
+  data() {
     return {
       visible: this.visibility,
-      timeout: null
+      timeout: 0
     }
   },
 
@@ -39,13 +45,13 @@ export default {
   },
 
   methods: {
-    showAlert () {
-      const openPromise = new Promise((resolve, reject) => {
+    showAlert() {
+      const openPromise = new Promise<void>((resolve, reject) => {
         this.visible = true
         resolve()
       })
       openPromise.then(() => {
-        this.gsap.to('.alert', {
+        this.$gsap.to('.alert', {
           y: 600,
           onComplete: () => {
             this.timeout = setTimeout(this.closeAlert, 5000)
@@ -54,8 +60,8 @@ export default {
       })
     },
 
-    closeAlert () {
-      this.gsap.to('.alert', {
+    closeAlert() {
+      this.$gsap.to('.alert', {
         y: -600,
         onComplete: () => {
           this.visible = false
@@ -65,7 +71,7 @@ export default {
       })
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

@@ -58,8 +58,9 @@
 
 <script lang="ts">
 import AppCard from '@/components/ui/AppCard'
+import {defineComponent} from "vue"
 
-export default {
+export default defineComponent({
   components: { AppCard },
 
   data () {
@@ -69,16 +70,16 @@ export default {
   },
 
   mounted () {
-    this.makePin('.screen__pin-content', '.screen', false, '+120 top', '95% bottom')
+    this.$makePin('.screen__pin-content', '.screen', false, '+120 top', '95% bottom')
     this.playVideo()
-    this.cards = this.gsap.utils.toArray('.card.screen__card')
+    this.cards = this.$gsap.utils.toArray('.card.screen__card')
     this.startCardAnim()
   },
 
   methods: {
     startCardAnim () {
       this.cards.forEach(card => {
-        this.gsap.to(card, {
+        this.$gsap.to(card, {
           x: 1000,
           scrollTrigger: {
             trigger: card,
@@ -92,7 +93,7 @@ export default {
     },
 
     playVideo () {
-      this.gsap.to('.screen', {
+      this.$gsap.to('.screen', {
         scrollTrigger: {
           trigger: '.screen',
           start: '100 top',
@@ -117,7 +118,7 @@ export default {
       })
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

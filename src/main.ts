@@ -9,3 +9,4 @@ createApp(App)
   .use(store)
   .use(gsap)
   .mount('#app')
+

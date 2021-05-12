@@ -27,9 +27,10 @@
 </template>
 
 <script lang="ts">
-import AppAnimList from '@/components/ui/AppAnimList'
+import AppAnimList from '@/components/ui/AppAnimList.vue'
+import {defineComponent} from "vue"
 
-export default {
+export default defineComponent({
   components: { AppAnimList },
 
   data () {
@@ -40,13 +41,15 @@ export default {
   },
 
   mounted () {
-    this.makePin('.integrations__pin-content', '.integrations')
-    this.startCitiesAnim(this.makeTl(), '#integrations__to', this.cities)
+    this.$makePin('.integrations__pin-content', '.integrations')
+    const tl = this.makeTl()
+    type TlType = typeof tl
+    this.startCitiesAnim<TlType>(tl, '#integrations__to', this.cities)
   },
 
   methods: {
     makeTl () {
-      const tl = this.gsap.timeline({
+      return this.$gsap.timeline({
         repeat: -1,
         repeatDelay: 1,
         scrollTrigger: {
@@ -55,18 +58,15 @@ export default {
           start: 'top center'
         }
       })
+    },
 
+    startCitiesAnim<T>(tl: T, el: string, arr: string[]): T {
+      console.log(tl)
+      const insideArr = arr.slice(0)
       tl.to('#integrations__from', {
         duration: 1,
         text: 'Сочи'
       })
-
-      return tl
-    },
-
-    startCitiesAnim (tl, el, arr) {
-      const insideArr = arr.slice(0)
-
       if (!insideArr.length) {
         return tl
       } else {
@@ -82,7 +82,7 @@ export default {
       }
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

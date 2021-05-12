@@ -1,34 +1,38 @@
 <template>
-  <div
-    v-if="visibility"
-    class="modal"
-    :style="modalSize"
-  >
-    <h2
-      v-if="title"
-      class="modal-title"
+  <div>
+    <div
+      v-if="visibility"
+      class="modal"
+      :style="modalSize"
     >
-      {{ title }}
-    </h2>
-    <div class="modal-content">
-      <slot />
+      <h2
+        v-if="title"
+        class="modal-title"
+      >
+        {{ title }}
+      </h2>
+      <div class="modal-content">
+        <slot/>
+      </div>
     </div>
+    <div
+      v-if="visibility"
+      class="backdrop"
+      @click="$emit('close')"
+    />
   </div>
-  <div
-    v-if="visibility"
-    class="backdrop"
-    @click="$emit('close')"
-  />
 </template>
 
 <script lang="ts">
-export default {
+import {defineComponent} from "vue"
+
+export default defineComponent({
   props: ['title', 'visibility', 'modalSize'],
   emits: ['close'],
-  data () {
+  data() {
     return {}
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>
@@ -52,6 +56,7 @@ export default {
     position: relative
     top: 50%
     transform: translateY(-50%)
+
 .backdrop
   position: fixed
   left: 0

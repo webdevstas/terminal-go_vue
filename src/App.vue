@@ -13,8 +13,9 @@
 import '@/assets/sass/global.sass'
 import Header from './components/sections/Header.vue'
 import Footer from './components/sections/Footer.vue'
+import {defineComponent} from "vue"
 
-export default {
+export default defineComponent({
   name: 'App',
   components: {
     Header,
@@ -23,7 +24,7 @@ export default {
   data() {
     return {}
   }
-}
+})
 </script>
 
 <style lang="sass">

@@ -55,15 +55,16 @@
 </template>
 
 <script lang="ts">
-import AppSequence from '@/components/ui/AppSequence'
+import AppSequence from '@/components/ui/AppSequence.vue'
+import {defineComponent} from "vue"
 
-export default {
+export default defineComponent({
   components: {
     AppSequence
   },
   mounted () {
-    this.makePin('.camera__pin-content', '.camera', false, '59 top')
-    this.gsap.from('#camera', {
+    this.$makePin('.camera__pin-content', '.camera', false, '59 top', 'bottom bottom')
+    this.$gsap.from('#camera', {
       y: '-55vh',
       scrollTrigger: {
         trigger: '.camera__wrapper',
@@ -74,7 +75,7 @@ export default {
       }
     })
   }
-}
+})
 </script>
 
 <style lang="sass">

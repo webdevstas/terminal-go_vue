@@ -1,102 +1,105 @@
 <template>
-  <header class="header">
-    <div class="container">
-      <div class="header__row">
-        <router-link
-          to="/"
-          class="header__th-logo-link"
-        >
-          <div class="header__logo-block">
-            <img
-              src="@/assets/img/icons/go_logo.svg"
-              alt=""
-              class="header__go-logo-img"
-            >
-            <img
-              src="@/assets/img/icons/THGO_Logo.png"
-              alt=""
-              class="header__th-logo-img"
-            >
-          </div>
-        </router-link>
-        <div class="header__group_right">
-          <button
-            id="header__partner-btn"
-            class="btn btn-outline-light"
-            role="button"
-            @click="modalVisible = !modalVisible"
+  <div>
+    <header class="header">
+      <div class="container">
+        <div class="header__row">
+          <router-link
+            to="/"
+            class="header__th-logo-link"
           >
-            Стать партнёром
-          </button>
+            <div class="header__logo-block">
+              <img
+                src="@/assets/img/icons/go_logo.svg"
+                alt=""
+                class="header__go-logo-img"
+              >
+              <img
+                src="@/assets/img/icons/THGO_Logo.png"
+                alt=""
+                class="header__th-logo-img"
+              >
+            </div>
+          </router-link>
+          <div class="header__group_right">
+            <button
+              id="header__partner-btn"
+              class="btn btn-outline-light"
+              role="button"
+              @click="modalVisible = !modalVisible"
+            >
+              Стать партнёром
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-  <teleport to="body">
-    <AppModal
-      :title="modalTitle"
-      :visibility="modalVisible"
-      :modal-size="{height: '350px', width: '500px'}"
-      @close="modalVisible = false"
-    >
-      <Form
-        action=""
-        class="request-form"
-        @submit="submitRequest"
+    </header>
+    <teleport to="body">
+      <AppModal
+        :title="modalTitle"
+        :visibility="modalVisible"
+        :modal-size="{height: '350px', width: '500px'}"
+        @close="modalVisible = false"
       >
-        <ErrorMessage
-          name="phone"
-          :class="'danger form-error'"
-        />
-        <div class="input-block">
-          <label for="phone">Телефон:</label>
-          <Field
-            id="phone"
-            v-model="requestPhone"
-            type="tel"
-            class="form-control"
+        <Form
+          action=""
+          class="request-form"
+          @submit="submitRequest"
+        >
+          <ErrorMessage
             name="phone"
-            :rules="phoneRules"
-            :validate-on-input="true"
+            :class="'danger form-error'"
           />
-        </div>
-        <div class="input-block">
-          <button
-            type="submit"
-            class="request btn btn-outline-success"
-          >
-            Отправить
-          </button>
-        </div>
-        <div class="modal-policy">
-          <p class="modal-policy__text">
-            Нажимая кнопку "Отправить" вы подтверждаете своё согласие с
-            <a
-              href="#"
-              class="modal-policy__link"
-              @click.prevent="goTo('/politika-konfidencialnosti')"
-            >политикой конфиденциальности</a>
-          </p>
-        </div>
-      </Form>
-    </AppModal>
-    <AppAlert
-      title="Заявка успешно отправлена"
-      :visibility="alertVisible"
-      type="success"
-      message="Спасибо! Ближайшее время мы с вами свяжемся."
-      @alertClosed="alertVisible = false"
-    />
-  </teleport>
+          <div class="input-block">
+            <label for="phone">Телефон:</label>
+            <Field
+              id="phone"
+              v-model="requestPhone"
+              type="tel"
+              class="form-control"
+              name="phone"
+              :rules="phoneRules"
+              :validate-on-input="true"
+            />
+          </div>
+          <div class="input-block">
+            <button
+              type="submit"
+              class="request btn btn-outline-success"
+            >
+              Отправить
+            </button>
+          </div>
+          <div class="modal-policy">
+            <p class="modal-policy__text">
+              Нажимая кнопку "Отправить" вы подтверждаете своё согласие с
+              <a
+                href="#"
+                class="modal-policy__link"
+                @click.prevent="goTo('/politika-konfidencialnosti')"
+              >политикой конфиденциальности</a>
+            </p>
+          </div>
+        </Form>
+      </AppModal>
+      <AppAlert
+        title="Заявка успешно отправлена"
+        :visibility="alertVisible"
+        msg-type="success"
+        message="Спасибо! Ближайшее время мы с вами свяжемся."
+        @alertClosed="alertVisible = false"
+      />
+    </teleport>
+  </div>
 </template>
 
 <script lang="ts">
-import AppModal from '@/components/ui/AppModal'
-import { Field, Form, ErrorMessage } from 'vee-validate'
+import AppModal from '@/components/ui/AppModal.vue'
+import {Field, Form, ErrorMessage} from 'vee-validate'
 import * as yup from 'yup'
-import AppAlert from '@/components/ui/AppAlert'
+import AppAlert from '@/components/ui/AppAlert.vue'
+import {defineComponent} from "vue"
 
-export default {
+export default defineComponent({
   components: {
     AppAlert,
     AppModal,
@@ -105,29 +108,29 @@ export default {
     ErrorMessage
   },
 
-  data () {
+  data() {
     return {
       modalVisible: false,
       requestPhone: '',
       modalTitle: 'Оставить заявку',
-      phoneRules: yup.string().required('Введите номер телефона').matches('^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$', 'Введите корректный номер телефона'),
+      phoneRules: yup.string().required('Введите номер телефона').matches(new RegExp('^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$'), 'Введите корректный номер телефона'),
       alertVisible: false
     }
   },
 
   methods: {
-    submitRequest () {
+    submitRequest() {
       this.modalVisible = false
       this.alertVisible = true
       console.log(this.requestPhone)
     },
 
-    goTo (path) {
+    goTo(path: string) {
       this.modalVisible = false
       this.$router.push(path)
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

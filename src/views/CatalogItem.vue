@@ -8,25 +8,24 @@
 </template>
 
 <script lang="ts">
+import AppMap from '@/components/ui/AppMap.vue'
+import {defineComponent} from "vue"
 
-import AppMap from '@/components/ui/AppMap'
-export default {
-  components: { AppMap },
+export default defineComponent({
+  components: {AppMap},
   props: ['title'],
-  data () {
-    return {
-
-    }
+  data() {
+    return {}
   },
   computed: {
-    cluster () {
+    cluster() {
       return this.$store.getters['clusters/getClusterBySlug'](this.$route.params.slug)
     },
-    terminals () {
+    terminals() {
       return this.$store.getters['terminals/getTerminalsByClusterId'](this.cluster.id)
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

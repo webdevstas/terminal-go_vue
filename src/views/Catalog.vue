@@ -14,9 +14,10 @@
 </template>
 
 <script lang="ts">
-import AppCatalogCard from '@/components/ui/AppCatalogCard'
+import AppCatalogCard from '@/components/ui/AppCatalogCard.vue'
+import {defineComponent} from "vue"
 
-export default {
+export default defineComponent({
   components: { AppCatalogCard },
   data () {
     return {}
@@ -26,7 +27,7 @@ export default {
       return this.$store.getters['clusters/getClusters']
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

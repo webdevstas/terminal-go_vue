@@ -1,6 +1,21 @@
+declare interface Terminal {
+  id: number;
+  address: string;
+  coords: [number, number];
+  statistic: {
+    dayViews: number,
+    monthViews: number
+  },
+  cluster: number[]
+}
+
+declare interface TerminalState {
+  terminals: Terminal[]
+}
+
 export default {
   namespaced: true,
-  state () {
+  state (): TerminalState {
     return {
       terminals: [
         {
@@ -47,10 +62,10 @@ export default {
     }
   },
   getters: {
-    getTerminals (state) {
+    getTerminals (state: TerminalState): Terminal[] {
       return state.terminals
     },
-    getTerminalsByClusterId: (state) => (clusterId) => {
+    getTerminalsByClusterId: (state: TerminalState) => (clusterId: number): Terminal[] | undefined => {
       return state.terminals.filter(terminal => terminal.cluster.includes(clusterId))
     }
   }

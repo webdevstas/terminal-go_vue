@@ -1,40 +1,44 @@
 <template>
-  <h1 class="section-title">
-    {{ title }}
-  </h1>
-  <div id="map" />
-  <div
-    v-if="statsVisible"
-    class="stats"
-  >
-    <div class="stats-col">
-      Адрес
-    </div>
-    <div class="stats-col">
-      Дневная проходимость
-    </div>
-    <div class="stats-col">
-      Месячная проходимость
-    </div>
-    <div class="stats-col">
-      {{ stats.address }}
-    </div>
-    <div class="stats-col">
-      {{ stats.statistic.dayViews }}
-    </div>
-    <div class="stats-col">
-      {{ stats.statistic.monthViews }}
+  <div>
+    <h1 class="section-title">
+      {{ title }}
+    </h1>
+    <div id="map"/>
+    <div
+      v-if="statsVisible"
+      class="stats"
+    >
+      <div class="stats-col">
+        Адрес
+      </div>
+      <div class="stats-col">
+        Дневная проходимость
+      </div>
+      <div class="stats-col">
+        Месячная проходимость
+      </div>
+      <div class="stats-col">
+        {{ stats.address }}
+      </div>
+      <div class="stats-col">
+        {{ stats.statistic.dayViews }}
+      </div>
+      <div class="stats-col">
+        {{ stats.statistic.monthViews }}
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { markRaw } from 'vue'
+import {markRaw} from 'vue'
 
 /* eslint-disable no-undef */
-export default {
+import {defineComponent} from "vue"
+
+export default defineComponent({
   props: ['terminals', 'title'],
-  data () {
+  data() {
     return {
       map: null,
       statsVisible: false,
@@ -44,7 +48,7 @@ export default {
 
   computed: {},
 
-  created () {
+  created() {
     ymaps.ready(() => {
       const map = new ymaps.Map('map', {
         center: [43.581396, 39.719130],
@@ -56,16 +60,16 @@ export default {
   },
 
   methods: {
-    openStats (data) {
+    openStats(data) {
       this.stats = data
       this.statsVisible = true
     },
 
-    closeStats () {
+    closeStats() {
       this.statsVisible = false
     },
 
-    setMarkers () {
+    setMarkers() {
       const collection = new ymaps.GeoObjectCollection(null, {
         iconLayout: 'default#image',
         iconImageHref: '/go_logo.png',
@@ -93,7 +97,7 @@ export default {
       this.map.geoObjects.add(collection)
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

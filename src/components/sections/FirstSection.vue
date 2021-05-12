@@ -19,16 +19,17 @@
 
 <script lang="ts">
 
-import AppSequence from '@/components/ui/AppSequence'
+import AppSequence from '@/components/ui/AppSequence.vue'
+import {defineComponent} from "vue"
 
-export default {
+export default defineComponent({
   components: { AppSequence },
   mounted () {
-    this.makePin('.first-section__pin-content', '.first-section', false, '100 top')
+    this.$makePin('.first-section__pin-content', '.first-section', false, '100 top')
   },
   methods: {
     startTextAnim () {
-      this.gsap.from('.first-section__preview-text', {
+      this.$gsap.from('.first-section__preview-text', {
         y: 300,
         opacity: 0,
         delay: 2,
@@ -37,7 +38,7 @@ export default {
       })
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

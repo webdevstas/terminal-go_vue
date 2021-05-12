@@ -1,6 +1,18 @@
+declare interface Cluster {
+  id: number;
+  title: string;
+  description: string;
+  link: string;
+  image: string
+}
+
+declare interface ClusterState {
+  clusters: Cluster[]
+}
+
 export default {
   namespaced: true,
-  state () {
+  state (): ClusterState {
     return {
       clusters: [
         {
@@ -35,10 +47,10 @@ export default {
     }
   },
   getters: {
-    getClusters (state) {
+    getClusters (state: ClusterState): Cluster[] {
       return state.clusters
     },
-    getClusterBySlug: (state) => (slug) => {
+    getClusterBySlug: (state: ClusterState) => (slug: string): Cluster | undefined => {
       return state.clusters.find(cluster => cluster.link === slug)
     }
   }

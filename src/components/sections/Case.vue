@@ -26,9 +26,11 @@
 </template>
 
 <script lang="ts">
-import AppAnimList from '@/components/ui/AppAnimList'
-import AppSequence from '@/components/ui/AppSequence'
-export default {
+import AppAnimList from '@/components/ui/AppAnimList.vue'
+import AppSequence from '@/components/ui/AppSequence.vue'
+import {defineComponent} from "vue"
+
+export default defineComponent({
   components: { AppSequence, AppAnimList },
   data () {
     return {
@@ -37,13 +39,13 @@ export default {
   },
 
   mounted () {
-    this.makePin('.case__pin-content', '.case')
+    this.$makePin('.case__pin-content', '.case')
   },
 
   methods: {
 
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

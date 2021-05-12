@@ -11,18 +11,21 @@
 </template>
 
 <script lang="ts">
-export default {
+import {defineComponent} from "vue"
+import TweenTarget = gsap.TweenTarget;
+
+export default defineComponent({
   props: ['items', 'name', 'animOptions'],
 
-  mounted () {
-    this.startTextAnim(this.animOptions)
+  mounted() {
+    this.startTextAnim()
   },
 
   methods: {
-    startTextAnim (options) {
-      const textItems = this.gsap.utils.toArray(`.${this.name}-list .list-item`)
+    startTextAnim() {
+      const textItems = this.$gsap.utils.toArray<string | TweenTarget | Element>(`.${this.name}-list .list-item`)
       textItems.forEach(item => {
-        this.gsap.from(item, {
+        this.$gsap.from(item, {
           scale: 0,
           opacity: 0,
           scrollTrigger: {
@@ -36,7 +39,7 @@ export default {
       })
     }
   }
-}
+})
 </script>
 
 <style lang="sass">

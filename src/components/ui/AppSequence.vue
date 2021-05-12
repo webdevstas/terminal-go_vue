@@ -1,13 +1,15 @@
 <template>
   <div>
-    <canvas :id="id" />
+    <canvas :id="id"/>
   </div>
 </template>
 
 <script lang="ts">
-export default {
+import {defineComponent} from "vue"
+
+export default defineComponent({
   props: ['id', 'canvasWidth', 'canvasHeight', 'frameCount', 'filesSrc', 'trigger', 'start', 'end'],
-  mounted () {
+  mounted() {
     const canvas = document.getElementById(this.id)
     const context = canvas.getContext('2d')
 
@@ -28,7 +30,7 @@ export default {
     firstImg.src = currentFrame(1)
     images.push(firstImg)
 
-    this.gsap.to(canvas, {
+    this.$gsap.to(canvas, {
       scrollTrigger: {
         trigger: canvas,
         // markers: true,
@@ -44,7 +46,7 @@ export default {
       }
     })
 
-    this.gsap.to(film, {
+    this.$gsap.to(film, {
       frame: frameCount - 1,
       snap: 'frame',
       scrollTrigger: {
@@ -59,12 +61,12 @@ export default {
 
     images[0].onload = render
 
-    function render () {
+    function render() {
       context.clearRect(0, 0, canvas.width, canvas.height)
       context.drawImage(images[film.frame], 0, 0, canvas.width, canvas.height)
     }
   }
-}
+})
 </script>
 
 <style scoped>

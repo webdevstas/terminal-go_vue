@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home'
-import Policy from '@/views/Policy'
-import Map from '@/views/Map'
-import Conditions from '@/views/Conditions'
-import Catalog from '@/views/Catalog'
-import CatalogItem from '@/views/CatalogItem'
-import three from '@/views/3d'
+import Home from '@/views/Home.vue'
+import Policy from '@/views/Policy.vue'
+import Map from '@/views/Map.vue'
+import Conditions from '@/views/Conditions.vue'
+import Catalog from '@/views/Catalog.vue'
+import CatalogItem from '@/views/CatalogItem.vue'
+import three from '@/views/3d.vue'
 
 const routes = [
   {

@@ -18,9 +18,11 @@
 </template>
 
 <script lang="ts">
-export default {
+import {defineComponent} from "vue"
+
+export default defineComponent({
   props: ['title', 'description', 'link', 'image']
-}
+})
 </script>
 
 <style lang="sass" scoped>
