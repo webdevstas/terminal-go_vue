@@ -1,14 +1,4 @@
-declare interface Cluster {
-  id: number;
-  title: string;
-  description: string;
-  link: string;
-  image: string
-}
-
-declare interface ClusterState {
-  clusters: Cluster[]
-}
+import {ClusterState, Cluster} from '@/types/clusters'
 
 export default {
   namespaced: true,

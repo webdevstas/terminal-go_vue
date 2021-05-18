@@ -12,7 +12,7 @@ declare module '@vue/runtime-core' {
 }
 
 export default {
-  install: (app: unknown, options: unknown): void => {
+  install (app: any, options?: any): void {
     app.config.globalProperties.$makePin = (pinBlock: string, trigger: string, markers = false, start = 'top top', end = 'bottom bottom') => {
       gsap.to(pinBlock, {
         scrollTrigger: {

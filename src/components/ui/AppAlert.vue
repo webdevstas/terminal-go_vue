@@ -29,7 +29,7 @@ export default defineComponent({
     message: {type: String, default: ''},
     visibility: {type: Boolean, default: false}
   },
-  emits: ['alertClosed'],
+  emits: ['alert-closed'],
 
   data() {
     return {
@@ -46,7 +46,7 @@ export default defineComponent({
 
   methods: {
     showAlert() {
-      const openPromise = new Promise<void>((resolve, reject) => {
+      const openPromise = new Promise<void>((resolve) => {
         this.visible = true
         resolve()
       })
@@ -65,7 +65,7 @@ export default defineComponent({
         y: -600,
         onComplete: () => {
           this.visible = false
-          this.$emit('alertClosed')
+          this.$emit('alert-closed')
           clearTimeout(this.timeout)
         }
       })

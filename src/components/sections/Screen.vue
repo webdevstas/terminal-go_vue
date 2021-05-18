@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import AppCard from '@/components/ui/AppCard'
+import AppCard from '@/components/ui/AppCard.vue'
 import {defineComponent} from "vue"
 
 export default defineComponent({
@@ -93,19 +93,20 @@ export default defineComponent({
     },
 
     playVideo () {
+      const videoEl = <HTMLVideoElement>document.getElementById('video-frame')
       this.$gsap.to('.screen', {
         scrollTrigger: {
           trigger: '.screen',
           start: '100 top',
           onEnter: () => {
-            document.getElementById('video-frame').play()
+            videoEl.play()
           }
         }
       })
     },
 
     scaleOutScreen () {
-      this.gsap.from('.screen-img__wrap', {
+      this.$gsap.from('.screen-img__wrap', {
         scale: 1.4,
         y: 220,
         scrollTrigger: {

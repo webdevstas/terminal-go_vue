@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 export default {
-    install: (app, options) => {
+    install(app, options) {
         app.config.globalProperties.$makePin = (pinBlock, trigger, markers = false, start = 'top top', end = 'bottom bottom') => {
             gsap.to(pinBlock, {
                 scrollTrigger: {

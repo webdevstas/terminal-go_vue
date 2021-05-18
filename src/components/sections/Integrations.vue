@@ -43,8 +43,7 @@ export default defineComponent({
   mounted () {
     this.$makePin('.integrations__pin-content', '.integrations')
     const tl = this.makeTl()
-    type TlType = typeof tl
-    this.startCitiesAnim<TlType>(tl, '#integrations__to', this.cities)
+    this.startCitiesAnim(tl, '#integrations__to', this.cities)
   },
 
   methods: {
@@ -60,8 +59,7 @@ export default defineComponent({
       })
     },
 
-    startCitiesAnim<T>(tl: T, el: string, arr: string[]): T {
-      console.log(tl)
+    startCitiesAnim(tl: GSAPTimeline, el: string, arr: string[]): GSAPTimeline {
       const insideArr = arr.slice(0)
       tl.to('#integrations__from', {
         duration: 1,

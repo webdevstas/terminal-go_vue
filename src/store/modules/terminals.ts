@@ -1,18 +1,4 @@
-declare interface Terminal {
-  id: number;
-  address: string;
-  coords: [number, number];
-  statistic: {
-    dayViews: number,
-    monthViews: number
-  },
-  cluster: number[]
-}
-
-declare interface TerminalState {
-  terminals: Terminal[]
-}
-
+import {Terminal, TerminalState} from '@/types/terminals'
 export default {
   namespaced: true,
   state (): TerminalState {

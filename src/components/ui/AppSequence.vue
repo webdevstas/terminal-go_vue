@@ -10,18 +10,18 @@ import {defineComponent} from "vue"
 export default defineComponent({
   props: ['id', 'canvasWidth', 'canvasHeight', 'frameCount', 'filesSrc', 'trigger', 'start', 'end'],
   mounted() {
-    const canvas = document.getElementById(this.id)
+    const canvas = <HTMLCanvasElement>document.getElementById(this.id)
     const context = canvas.getContext('2d')
 
     canvas.width = this.canvasWidth || document.documentElement.clientWidth - 200
     canvas.height = this.canvasHeight || document.documentElement.clientHeight
 
     const frameCount = this.frameCount
-    const currentFrame = index => (
+    const currentFrame = (index: number) => (
       `static${this.filesSrc}(${index}).png`
     )
 
-    const images = []
+    const images: HTMLImageElement[] = []
     const film = {
       frame: 0
     }
@@ -48,7 +48,7 @@ export default defineComponent({
 
     this.$gsap.to(film, {
       frame: frameCount - 1,
-      snap: 'frame',
+      snap: {frame: 1},
       scrollTrigger: {
         trigger: this.trigger,
         scrub: 0.1,

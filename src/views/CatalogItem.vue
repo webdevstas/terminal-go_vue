@@ -10,18 +10,22 @@
 <script lang="ts">
 import AppMap from '@/components/ui/AppMap.vue'
 import {defineComponent} from "vue"
+import {Cluster} from '@/types/clusters'
+import {Terminal} from '@/types/terminals'
 
 export default defineComponent({
   components: {AppMap},
-  props: ['title'],
+  props: {
+    title: {type: String, default: ''}
+  },
   data() {
     return {}
   },
   computed: {
-    cluster() {
+    cluster(): Cluster {
       return this.$store.getters['clusters/getClusterBySlug'](this.$route.params.slug)
     },
-    terminals() {
+    terminals(): Terminal[] {
       return this.$store.getters['terminals/getTerminalsByClusterId'](this.cluster.id)
     }
   }

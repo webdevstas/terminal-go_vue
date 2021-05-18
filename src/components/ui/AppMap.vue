@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import {markRaw} from 'vue'
 
 /* eslint-disable no-undef */

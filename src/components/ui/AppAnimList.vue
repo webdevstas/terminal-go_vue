@@ -12,7 +12,6 @@
 
 <script lang="ts">
 import {defineComponent} from "vue"
-import TweenTarget = gsap.TweenTarget;
 
 export default defineComponent({
   props: ['items', 'name', 'animOptions'],
@@ -23,7 +22,7 @@ export default defineComponent({
 
   methods: {
     startTextAnim() {
-      const textItems = this.$gsap.utils.toArray<string | TweenTarget | Element>(`.${this.name}-list .list-item`)
+      const textItems = this.$gsap.utils.toArray<Element>(`.${this.name}-list .list-item`)
       textItems.forEach(item => {
         this.$gsap.from(item, {
           scale: 0,
